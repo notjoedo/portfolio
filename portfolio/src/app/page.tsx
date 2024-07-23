@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Footer from "../components/footer";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <div className="flex justify-between pt-10 tracking-wide text-4xl text-[#DAD7CD] font-extralight">
         <h1>Hello, my name is Joe</h1>
       </div>
+      <Footer />
     </div>
   );
 }
