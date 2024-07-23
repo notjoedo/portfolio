@@ -22,7 +22,7 @@ export default function Home() {
       <div className="w-max">
         <h1
           className="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white
-         pr-5 mt-10 text-3xl font-light text-[#DAD7CD]"
+         pr-5 mt-10 text-3xl font-light text-[#DAD7CD] tracking-[-0.10em]"
         >
           Hello, my name is Joe.
         </h1>

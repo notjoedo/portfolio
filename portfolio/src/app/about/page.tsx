@@ -16,7 +16,7 @@ export default function About() {
         <div className="flex-row text-center md:text-left">
           <h1
             className="animate-typeonce overflow-hidden whitespace-nowrap border-r-4 border-r-white
-         px-10 text-xl font-light text-[#DAD7CD] leading-8 space-y-5"
+         px-10 text-xl font-light text-[#DAD7CD] leading-10"
           >
             I'm a student majoring in Computational Modeling & Data Analytics
             and minoring in Computer Science at Virginia Tech! <br /> I love

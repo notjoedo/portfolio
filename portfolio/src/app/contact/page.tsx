@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Contact() {
   return (
@@ -9,7 +9,12 @@ export default function Contact() {
     >
       <h1 className="text-7xl">Contact Me</h1>
       <p className="text-3xl">joedo2910@gmail.com</p>
-      <p className="text-3xl">https://www.linkedin.com/in/hoanglehuydo/</p>
+      <Link
+        href="https://www.linkedin.com/in/hoanglehuydo/"
+        className="text-3xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:font-normal duration-150"
+      >
+        My LinkedIn
+      </Link>
       <p className="text-3xl">Download my CSV</p>
     </div>
   );
