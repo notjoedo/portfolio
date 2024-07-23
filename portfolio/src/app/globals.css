@@ -21,8 +21,8 @@ body {
   background: linear-gradient(
     to bottom left,
     rgb(var(--background-start-rgb)) 0%,
-    rgb(var(--background-start-rgb)) 50%,
-    rgb(var(--background-end-rgb)) 300%
+    rgb(var(--background-start-rgb)) 25%,
+    rgb(var(--background-end-rgb)) 150%
   );
   background-repeat: no-repeat; /* Ensure the background does not repeat */
   background-attachment: fixed; /* Optional: Fix the background to the viewport */
