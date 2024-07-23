@@ -3,7 +3,7 @@ import Footer from "../components/footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center items-center mt-24">
+    <div className="flex flex-col justify-center items-center mt-36">
       <div className="relative rounded-full border-2 border-[#A3B18A] shadow-sm shadow-[#DAD7CD] overflow-hidden">
         <Image
           className="rounded-full"

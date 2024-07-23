@@ -27,4 +27,5 @@ body {
   background-repeat: no-repeat; /* Ensure the background does not repeat */
   background-attachment: fixed; /* Optional: Fix the background to the viewport */
   background-size: cover; /* Ensure the gradient covers the entire area */
+  user-select: none;
 }
