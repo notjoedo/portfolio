@@ -23,7 +23,7 @@ export default function RootLayout({
         <Header />
         <Particles
           className="absolute inset-0 pointer-events-none"
-          quantity={100}
+          quantity={50}
         />
         {children}
       </body>
