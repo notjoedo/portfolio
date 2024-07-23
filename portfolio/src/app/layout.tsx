@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "../components/header";
-import Particles from "@/components/particles";
+import Particles from "@/components/particles/particles";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +23,7 @@ export default function RootLayout({
         <Header />
         <Particles
           className="absolute inset-0 pointer-events-none"
-          quantity={50}
+          quantity={100}
         />
         {children}
       </body>

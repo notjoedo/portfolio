@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import MousePosition from "@/components/mouse-position";
+import MousePosition from "@/components/particles/mouse-position";
 
 interface ParticlesProps {
   className?: string;
@@ -219,6 +219,7 @@ export default function Particles({
       window.removeEventListener("resize", initCanvas);
     };
   }, []);
+
   return (
     <div className={className} ref={canvasContainerRef} aria-hidden="true">
       <canvas ref={canvasRef} />
