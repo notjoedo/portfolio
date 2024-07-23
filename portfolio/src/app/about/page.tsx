@@ -1,8 +1,9 @@
 import Image from "next/image";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 
 export default function About() {
   return (
-    <div className="flex flex-col m-10 p-10 justify-start items-start">
+    <div className="flex flex-col m-10 p-10 justify-center items-center">
       <div className="flex flex-row md:flex-row items-center">
         <div className="relative overflow-hidden rounded-full border-2 border-[#A3B18A] shadow-sm shadow-[#DAD7CD] mb-6 md:mb-0 md:mr-6 flex-shrink-0">
           <Image
@@ -28,6 +29,20 @@ export default function About() {
             Thanks for taking a moment to get to know me!
           </h1>
         </div>
+      </div>
+      <div className="flex justify-center items-center bg-[#A3B18A] rounded-lg mt-10">
+        <TabGroup className={"p-5 space-y-10"}>
+          <TabList className="space-x-10 font-bold text-3xl tracking-[-0.05em] mr-32 pr-52">
+            <Tab>Tech Stack</Tab>
+            <Tab>Experiences</Tab>
+            <Tab>Hobbies</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>Content 1</TabPanel>
+            <TabPanel>Content 2</TabPanel>
+            <TabPanel>Content 3</TabPanel>
+          </TabPanels>
+        </TabGroup>
       </div>
     </div>
   );
