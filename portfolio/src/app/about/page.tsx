@@ -30,7 +30,7 @@ export default function About() {
           </h1>
         </div>
       </div>
-      <div className="flex justify-start items-center bg-[#A3B18A] rounded-lg mt-20 drop-shadow-lg w-full ">
+      <div className="flex justify-start items-center bg-[#A3B18A] rounded-lg mt-20 drop-shadow-lg w-full">
         <TabGroup className={"p-5 space-y-10"}>
           <TabList className="space-x-10 font-bold text-3xl tracking-[-0.05em] mr-32 pr-52">
             <Tab
@@ -56,7 +56,29 @@ export default function About() {
             </Tab>
           </TabList>
           <TabPanels>
-            <TabPanel>Content 1</TabPanel>
+            <TabPanel>
+              <div className="flex flex-row px-5 pb-5 space-x-10">
+                <Image
+                  src={"/nextjs.svg"}
+                  alt="next"
+                  width="100"
+                  height="100"
+                />
+                <Image
+                  src={"/astro-logo-icon.webp"}
+                  alt="next"
+                  width="100"
+                  height="100"
+                />
+                <Image src={"/css.svg"} alt="next" width="100" height="100" />
+                <Image
+                  src={"/html-icon.svg"}
+                  alt="next"
+                  width="88"
+                  height="88"
+                />
+              </div>
+            </TabPanel>
             <TabPanel>Content 2</TabPanel>
             <TabPanel>Content 3</TabPanel>
           </TabPanels>
