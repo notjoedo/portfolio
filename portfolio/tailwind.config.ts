@@ -48,3 +48,6 @@ const config: Config = {
 };
 
 export default config;
+function theme(arg0: string): string {
+  throw new Error("Function not implemented.");
+}

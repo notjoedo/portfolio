@@ -57,7 +57,14 @@ export default function About() {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <div className="flex flex-row px-5 pb-5 space-x-10">
+              <div className="flex flex-row px-5 pb-5 space-x-20">
+                <Image
+                  src={"/html-icon.svg"}
+                  alt="html"
+                  width="88"
+                  height="88"
+                />
+                <Image src={"/css.svg"} alt="next" width="100" height="100" />
                 <Image
                   src={"/nextjs.svg"}
                   alt="next"
@@ -66,16 +73,27 @@ export default function About() {
                 />
                 <Image
                   src={"/astro-logo-icon.webp"}
-                  alt="next"
+                  alt="astro"
                   width="100"
                   height="100"
                 />
-                <Image src={"/css.svg"} alt="next" width="100" height="100" />
                 <Image
-                  src={"/html-icon.svg"}
-                  alt="next"
-                  width="88"
-                  height="88"
+                  src={"/tailwind-css.svg"}
+                  alt="tailwind"
+                  width="100"
+                  height="100"
+                />
+                <Image
+                  src={"/javascript.svg"}
+                  alt="javascript"
+                  width="100"
+                  height="100"
+                />
+                <Image
+                  src={"/react.webp"}
+                  alt="react"
+                  width="100"
+                  height="100"
                 />
               </div>
             </TabPanel>
