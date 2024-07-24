@@ -30,7 +30,7 @@ export default function About() {
           </h1>
         </div>
       </div>
-      <div className="flex justify-center items-center bg-[#A3B18A] rounded-lg mt-10">
+      <div className="flex justify-center items-center bg-[#A3B18A] rounded-lg mt-10 drop-shadow-lg">
         <TabGroup className={"p-5 space-y-10"}>
           <TabList className="space-x-10 font-bold text-3xl tracking-[-0.05em] mr-32 pr-52">
             <Tab>Tech Stack</Tab>
