@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 
 export default function About() {
   return (
@@ -30,12 +30,30 @@ export default function About() {
           </h1>
         </div>
       </div>
-      <div className="flex justify-center items-center bg-[#A3B18A] rounded-lg mt-10 drop-shadow-lg">
+      <div className="flex justify-start items-center bg-[#A3B18A] rounded-lg mt-20 drop-shadow-lg w-full ">
         <TabGroup className={"p-5 space-y-10"}>
           <TabList className="space-x-10 font-bold text-3xl tracking-[-0.05em] mr-32 pr-52">
-            <Tab>Tech Stack</Tab>
-            <Tab>Experiences</Tab>
-            <Tab>Hobbies</Tab>
+            <Tab
+              className={
+                "transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-150"
+              }
+            >
+              TECH STACK
+            </Tab>
+            <Tab
+              className={
+                "transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-150"
+              }
+            >
+              EXPERIENCE
+            </Tab>
+            <Tab
+              className={
+                "transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-150"
+              }
+            >
+              HOBBIES
+            </Tab>
           </TabList>
           <TabPanels>
             <TabPanel>Content 1</TabPanel>
