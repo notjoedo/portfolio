@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <div
       className="flex flex-col justify-center items-center tracking-wide 
-       text-[#DAD7CD] font-light mt-20 space-y-20
+       text-[#DAD7CD] font-light mt-40 space-y-20
     "
     >
       <h1 className="text-7xl">Contact Me</h1>
