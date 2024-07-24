@@ -45,13 +45,6 @@ export default function About() {
                 "transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-150"
               }
             >
-              EXPERIENCE
-            </Tab>
-            <Tab
-              className={
-                "transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-150"
-              }
-            >
               HOBBIES
             </Tab>
           </TabList>
@@ -97,8 +90,34 @@ export default function About() {
                 />
               </div>
             </TabPanel>
-            <TabPanel>Content 2</TabPanel>
-            <TabPanel>Content 3</TabPanel>
+            <TabPanel>
+              <div className="flex flex-row px-5 pb-5 space-x-20">
+                <Image
+                  src={"/frontend.png"}
+                  alt="react"
+                  width="100"
+                  height="100"
+                />
+                <Image
+                  src={"/backend.png"}
+                  alt="react"
+                  width="100"
+                  height="100"
+                />
+                <Image
+                  src={"/weightlifting.webp"}
+                  alt="react"
+                  width="100"
+                  height="100"
+                />
+                <Image
+                  src={"/games.png"}
+                  alt="react"
+                  width="100"
+                  height="100"
+                />
+              </div>
+            </TabPanel>
           </TabPanels>
         </TabGroup>
       </div>
