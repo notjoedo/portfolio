@@ -19,7 +19,7 @@ export default function Home() {
           />
         </Link>
       </div>
-      <div className="w-max">
+      <div className="w-max mb-10 md:mb-0">
         <h1
           className="animate-typing overflow-hidden whitespace-nowrap border-r-4 border-r-white
          pr-5 mt-10 text-3xl font-light text-[#DAD7CD] tracking-[-0.10em]"
