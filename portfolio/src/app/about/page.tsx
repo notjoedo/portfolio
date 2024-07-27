@@ -12,6 +12,7 @@ export default function About() {
             width={250}
             height={250}
             alt="Joe"
+            priority={true}
           />
         </div>
         <div className="flex-row text-center md:text-left">
