@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Footer from "../components/footer";
 
 export default function Home() {
   return (
@@ -28,7 +27,6 @@ export default function Home() {
           Hello, my name is Joe.
         </h1>
       </div>
-      <Footer />
     </div>
   );
 }
