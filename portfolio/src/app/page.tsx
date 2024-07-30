@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default async function Home() {
   return (
-    <div className="mt-12 md:mt-36 flex flex-col items-center justify-center">
+    <div className="mt-12 md:mt-36 mb-24 flex flex-col items-center justify-center">
       <div
         className="relative overflow-hidden rounded-full border-2 border-[#A3B18A] shadow-sm shadow-[#DAD7CD] transition ease-in delay-150 
       hover:-translate-y-1 hover:scale-110 hover:border-[#DAD7CD] duration-150 m-7 md:m-0"
