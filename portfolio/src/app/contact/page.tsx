@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Contact() {
+export default async function Contact() {
   return (
     <div
       className="flex flex-col justify-center items-center tracking-wide 
