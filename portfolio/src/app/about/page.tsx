@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 
-export default function About() {
+export default async function About() {
   return (
     <div className="flex flex-col m-10 p-10 justify-center items-center">
       <div className="flex flex-col lg:flex-row md:space-y-10 lg:space-y-0 items-center">

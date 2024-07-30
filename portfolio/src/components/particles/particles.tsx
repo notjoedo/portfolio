@@ -10,7 +10,7 @@ interface ParticlesProps {
   ease?: number;
 }
 
-export default function Particles({
+export default async function Particles({
   className = "",
   quantity = 30,
   staticity = 50,
