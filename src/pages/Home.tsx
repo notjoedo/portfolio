@@ -1,21 +1,17 @@
-import Image from "next/image";
-import Link from "next/link";
+import { Link } from 'react-router-dom'
 
-export default async function Home() {
+export default function Home() {
   return (
     <div className="mt-0 md:mt-24 flex flex-col items-center justify-center">
       <div
         className="relative overflow-hidden rounded-full border-2 border-[#A3B18A] shadow-sm shadow-[#DAD7CD] transition ease-in delay-150 
       hover:-translate-y-1 hover:scale-110 hover:border-[#DAD7CD] duration-150 m-7 md:m-0"
       >
-        <Link href="/about">
-          <Image
-            className="rounded-full"
+        <Link to="/about">
+          <img
+            className="rounded-full w-[350px] h-[350px] object-cover"
             src="/me.png"
-            width={350}
-            height={350}
             alt="Joe"
-            priority={true}
           />
         </Link>
       </div>
@@ -28,5 +24,5 @@ export default async function Home() {
         </h1>
       </div>
     </div>
-  );
-}
+  )
+} 

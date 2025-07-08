@@ -28,4 +28,4 @@ body {
   background-attachment: fixed; /* Optional: Fix the background to the viewport */
   background-size: cover; /* Ensure the gradient covers the entire area */
   user-select: none; /* Users cannot select anything on the web */
-}
+} 
