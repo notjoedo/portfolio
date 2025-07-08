@@ -1,5 +1,4 @@
-import React from "react";
-import { Mail, Phone, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github } from "lucide-react";
 import { contactInfo } from "../data/resume";
 
 const Contact = () => {

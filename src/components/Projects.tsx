@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { projects } from '../data/resume';
 
 const Projects = () => {

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Mail, Github, ExternalLink, Linkedin, Download } from 'lucide-react';
+import { Mail, Github, Linkedin, Download } from 'lucide-react';
 import { contactInfo, education } from '../data/resume';
 import pfp from '../images/pfp.jpg';
 import cv from '../images/Joe_s_Resume.pdf';

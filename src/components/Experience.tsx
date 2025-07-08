@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { experiences } from '../data/resume';
 
 const Experience = () => {
@@ -17,7 +17,7 @@ const Experience = () => {
         </div>
 
         <div className="space-y-8">
-          {experiences.map((experience, index) => (
+          {experiences.map((experience) => (
             <div key={experience.id} className="apple-card">
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                 <div className="flex-1">
