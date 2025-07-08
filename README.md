@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Joe Do - Portfolio
+
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS.
+
+## Features
+
+- 🎨 **Modern Design**: Clean, Apple-inspired design with smooth animations
+- 🌙 **Dark/Light Mode**: Toggle between dark and light themes
+- 📱 **Responsive**: Fully responsive design that works on all devices
+- ⚡ **Fast**: Built with Vite for lightning-fast development and builds
+- 🎯 **Accessible**: Smooth scrolling navigation and keyboard-friendly interactions
+
+## Tech Stack
+
+- **Frontend**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Deployment**: Ready for Vercel, Netlify, or any static hosting
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository**
+   ```bash
+   git clone <your-repo-url>
+   cd portfolio
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to `http://localhost:5173` to view your portfolio
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Project Structure
+
+```
+src/
+├── components/     # React components
+├── contexts/       # React contexts (Theme)
+├── data/          # Resume data and content
+├── images/        # Static images and assets
+├── types/         # TypeScript type definitions
+└── App.tsx        # Main application component
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Update personal information** in `src/data/resume.ts`
+2. **Replace profile picture** in `src/images/pfp.jpg`
+3. **Update resume** in `src/images/Joe_s_Resume.pdf`
+4. **Modify styling** in `src/index.css` and Tailwind config
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Deployment
 
-## Learn More
+This project can be deployed to any static hosting service:
 
-To learn more about Next.js, take a look at the following resources:
+- **Vercel**: Connect your GitHub repository
+- **Netlify**: Drag and drop the `dist` folder
+- **GitHub Pages**: Use GitHub Actions for automatic deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is open source and available under the [MIT License](LICENSE).
