@@ -60,60 +60,60 @@ const GitHubActivity = () => {
   }
 
   return (
-    <div className="bg-white dark:bg-black rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold text-black dark:text-white">
+    <div className="bg-white dark:bg-black rounded-lg p-4 sm:p-6 border border-gray-200 dark:border-gray-700">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 space-y-2 sm:space-y-0">
+        <h3 className="text-lg font-semibold text-black dark:text-white text-center sm:text-left">
           Recent repositories
         </h3>
         <a
           href={`https://github.com/${username}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 dark:text-blue-400 hover:underline text-sm"
+          className="text-blue-600 dark:text-blue-400 hover:underline text-sm text-center sm:text-right block sm:inline"
         >
           View profile →
         </a>
       </div>
       
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {repositories.slice(0, 5).map((repo) => (
-          <div key={repo.name} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-black rounded-lg border border-gray-200 dark:border-gray-700">
-            <div className="flex-1">
+          <div key={repo.name} className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 bg-gray-50 dark:bg-black rounded-lg border border-gray-200 dark:border-gray-700 space-y-3 sm:space-y-0">
+            <div className="flex-1 min-w-0">
               <div className="flex items-center space-x-2 mb-1">
-                <span className="text-sm text-gray-600 dark:text-gray-300">
+                <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                   Repository
                 </span>
               </div>
-              <div className="text-sm font-medium text-black dark:text-white">
+              <div className="text-sm font-medium text-black dark:text-white break-words">
                 {repo.full_name}
               </div>
               {repo.description && (
-                <p className="text-xs text-gray-500 dark:text-gray-300 mt-1">
+                <p className="text-xs text-gray-500 dark:text-gray-300 mt-1 break-words">
                   {repo.description}
                 </p>
               )}
             </div>
             
-            <div className="flex items-center space-x-4 text-xs text-gray-500 dark:text-gray-300">
+            <div className="flex flex-wrap items-center justify-start sm:justify-end gap-3 sm:gap-4 text-xs text-gray-500 dark:text-gray-300">
               {repo.language && (
                 <div className="flex items-center space-x-1">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-black dark:text-white">{repo.language}</span>
+                  <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
+                  <span className="text-black dark:text-white whitespace-nowrap">{repo.language}</span>
                 </div>
               )}
               <div className="flex items-center space-x-1">
-                <span>⭐</span>
+                <span className="text-yellow-500">⭐</span>
                 <span className="text-black dark:text-white">{repo.stargazers_count}</span>
               </div>
               <div className="flex items-center space-x-1">
-                <span>🍴</span>
+                <span className="text-gray-400">🍴</span>
                 <span className="text-black dark:text-white">{repo.forks_count}</span>
               </div>
               <a
                 href={repo.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 dark:text-white hover:underline"
+                className="text-blue-600 dark:text-white hover:underline whitespace-nowrap px-2 py-1 rounded bg-blue-50 dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-gray-700 transition-colors duration-200"
               >
                 View
               </a>
