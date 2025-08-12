@@ -1,5 +1,6 @@
 
 import { projects } from '../data/resume';
+import GitHubActivity from './GitHubActivity';
 
 const Projects = () => {
   return (
@@ -14,51 +15,65 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {projects.map((project) => (
-            <div key={project.id} className="apple-card">
-              <div className="mb-4">
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-2">
-                  {project.name}
-                </h3>
-                <p className="text-black dark:text-white text-sm font-medium mb-3">
-                  {project.period}
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-              </div>
+        {/* Main Projects Section */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-black dark:text-white mb-8 text-center">
+            Featured Projects
+          </h3>
+          <div className="grid gap-8 md:grid-cols-2">
+            {projects.map((project) => (
+              <div key={project.id} className="apple-card">
+                <div className="mb-4">
+                  <h3 className="text-xl font-semibold text-black dark:text-white mb-2">
+                    {project.name}
+                  </h3>
+                  <p className="text-black dark:text-white text-sm font-medium mb-3">
+                    {project.period}
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
 
-              <div className="mb-4">
-                <h4 className="text-sm font-semibold text-black dark:text-white mb-2">
-                  Technologies Used:
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, index) => (
-                    <span key={index} className="tech-tag">
-                      {tech}
-                    </span>
-                  ))}
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-black dark:text-white mb-2">
+                    Technologies Used:
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, index) => (
+                      <span key={index} className="tech-tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-semibold text-black dark:text-white mb-2">
+                    Key Highlights:
+                  </h4>
+                  <ul className="space-y-1">
+                    {project.highlights.map((highlight, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-black dark:text-white mr-2 mt-1 text-xs">•</span>
+                        <span className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                          {highlight}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
 
-              <div>
-                <h4 className="text-sm font-semibold text-black dark:text-white mb-2">
-                  Key Highlights:
-                </h4>
-                <ul className="space-y-1">
-                  {project.highlights.map((highlight, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="text-black dark:text-white mr-2 mt-1 text-xs">•</span>
-                      <span className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                        {highlight}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+        {/* GitHub Activities Section */}
+        <div>
+          <h3 className="text-2xl font-bold text-black dark:text-white mb-8 text-center">
+            GitHub Activities
+          </h3>
+          <GitHubActivity />
         </div>
       </div>
     </section>

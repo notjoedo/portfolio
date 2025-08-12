@@ -16,6 +16,19 @@ export interface Project {
   highlights: string[];
 }
 
+export interface GitHubActivity {
+  id: string;
+  type: 'commit' | 'pull-request' | 'issue' | 'repository' | 'contribution';
+  title: string;
+  description: string;
+  repository?: string;
+  date: string;
+  language?: string;
+  stars?: number;
+  forks?: number;
+  url?: string;
+}
+
 export interface Skill {
   category: string;
   icon: string;
