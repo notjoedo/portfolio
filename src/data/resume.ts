@@ -73,34 +73,34 @@ export const experiences: Experience[] = [
     title: "AI Integration & Full-Stack Software Engineering Intern",
     company: "Centennial Technologies",
     location: "Leesburg, VA",
-    period: "May 2025 – Present",
+    period: "May 2025 – July 2025",
     description: [
-      "Designed and implemented an end-to-end automation workflow for XFA/PDF manipulation, leveraging Azure services and Python libraries to streamline and accelerate form-filling processes.",
-      "Architected full-stack solutions encompassing backend services, frontend clients, databases, and AI services, transforming parsed form data into API-ready JSON and relational formats for optimized cross-platform accessibility and performance.",
-      "Outlined UI/UX by designing wireframes and implemented modern frontend stack utilizing React, TypeScript, and Tailwind, with seamless integration to AI-powered backend services and RESTful APIs for real-time data processing."
+      "Designed and implemented an automation workflow for XFA/PDF manipulation using Azure and Python, reducing manual form-filling effort by 95% and accelerating enterprise document processing.",
+      "Architected full-stack solutions (backend, frontend, databases, AI services) that transformed raw form data into API-ready JSON and relational formats, improving cross-platform accessibility completely.",
+      "Outlined UI/UX by designing wireframes and implementing a modern frontend stack (React, TypeScript, Tailwind) with seamless integration to agentic AI-powered backend services and RESTful APIs, enabling autonomous document processing and real-time enterprise data flows"
     ]
   },
   {
     id: "grayur-research",
-    title: "Undergraduate Research @ GrayUR",
+    title: "SWE Undergraduate Research @ GrayUR",
     company: "Virginia Tech",
     location: "Blacksburg, VA",
     period: "Aug 2024 – May 2025",
     description: [
-      "Contributed to the development of a real-time audio processing system for the Phased Array Microphonics research project, building a custom GUI and backend using Python and Qt frameworks.",
-      "Designed and developed a scalable GUI application supporting real-time audio processing and recording, with customizable features to enable future extensibility using PySide6 and various other Python libraries.",
-      "Contributed to the development and testing of Python algorithms for audio signal manipulation and post-processing to extract meaningful data for research analysis."
+      "Developed a real-time audio processing system for the Phased Array Microphonics project using Python and Qt, enabling faster analysis of acoustic signals for experimental research.",
+      "Designed a scalable GUI application with PySide6, supporting real-time audio visualization and recording, and ensuring extensibility for future research modules.",
+      " Designed and conducted testing for signal manipulation algorithms that improved data extraction and provided clearer insights for research teams."
     ]
   },
   {
     id: "splunk-developer",
-    title: "Splunk Dashboard Developer",
+    title: "Data Analytics Splunk Developer",
     company: "Virginia Tech Division of Information Technology",
     location: "Blacksburg, VA",
-    period: "Aug 2024 – May 2025",
+    period: "Aug 2024 – Present",
     description: [
-      "Built interactive dashboards for various projects using Splunk's Search Processing Language to monitor various metrics such as security events and error logs across the Virginia Tech systems.",
-      "Developed a smart alert system on Splunk, notifying admins of security breaches or system errors across university IT infrastructure."
+      "Built analytical dashboards for various projects using Splunk’s Search Processing Language to monitor various metrics such as security events and error logs across the Virginia Tech systems.",
+      "Developed a smart alert system on Splunk, identifying over 100 faulty system errors, security breaches, or other suspicious activities daily across the entire university’s IT infrastructure."
     ]
   }
 ];
@@ -113,7 +113,8 @@ export const projects: Project[] = [
     description: "Developed a full-stack resume scanning application, SkillThread, utilizing Next.js as frontend development and FastAPI for backend APIs.",
     technologies: ["Python", "Natural Language Processing (NLP)", "Next.js", "FastAPI", "Vercel"],
     highlights: [
-      "Applied AI and NLP to optimize PDF parsing in SkillThread, enhancing accuracy in extracting keywords and experience for precise job matching by integrating job site APIs to fetch relevant job listings."
+      "Designed and deployed a full-stack resume scanning platform with a Next.js frontend and FastAPI backend, enabling seamless user interaction and scalable API performance.",
+      "Integrated AI/NLP pipelines to improve PDF parsing accuracy by 25%, enhancing keyword extraction and candidate-job matching precision."
     ]
   },
   {
@@ -123,8 +124,9 @@ export const projects: Project[] = [
     description: "Collaborated in a 3-member team, Gigglebytes, to compete in a data competition, securing a top 5 placement among all participating teams.",
     technologies: ["Python", "R", "Data Analytics", "Statistical Methodologies"],
     highlights: [
-      "Engineered a score-based ranking model in Python to extract and analyze real-world data from various files, employing statistical methods to generate quantifiable reports with visualizations and comprehensive solutions to real problems.",
-      "Conducted in-depth analysis and documented key findings, presenting the model with clear explanations of chosen metrics, their significance, and the overall results."
+      "Collaborated in a 3-member team to achieve a Top 5 finish in a national-level data competition.",
+      "Developed a statistical ranking model in Python to evaluate real estate opportunities, equipping real companies with actionable insights on where to best establish office complexes, and improving site selection accuracy by 50%.",
+      "Generated visual reports and presented findings with clear metric explanations, enabling stakeholders to make data-driven decisions."
     ]
   }
 ];
