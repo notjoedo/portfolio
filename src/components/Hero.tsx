@@ -1,7 +1,7 @@
 import { Mail, Github, Linkedin, Download } from 'lucide-react';
 import { contactInfo, education } from '../data/resume';
 import pfp from '../images/pfp.jpg';
-import cv from '../images/Joe_s_Resume.pdf';
+import cv from '../images/Joe_D_Resume.pdf';
 
 const Hero = () => {
   return (
@@ -80,7 +80,7 @@ const Hero = () => {
 
             <a 
               href={cv}
-              download="Joe_Do_Resume.pdf"
+              download="Joe_D_Resume.pdf"
               className="apple-button-secondary"
             >
               <Download className="w-5 h-5 mr-2" />
