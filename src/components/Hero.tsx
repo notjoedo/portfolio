@@ -1,10 +1,15 @@
 import { useState } from 'react';
-import { Github, Linkedin, Instagram } from 'lucide-react';
+import { Github, Linkedin, Instagram, Download } from 'lucide-react';
 import pfp from '../images/pfp.jpg';
+import resume from '../images/Joe_Do_Resume.pdf';
 import Tabs from './Tabs';
+import SkillTag from './SkillTag';
+import FilterTag from './FilterTag';
+import { skillCategories } from '../data/skills';
 
 function Hero() {
   const [activeTab, setActiveTab] = useState('bio');
+  const [selectedSkillCategory, setSelectedSkillCategory] = useState('Languages');
 
   const tabs = [
     { id: 'bio', label: 'bio' },
@@ -16,25 +21,40 @@ function Hero() {
     switch (activeTab) {
       case 'bio':
         return (
-          <div className="text-gray-800">
+          <div key="bio" className="text-gray leading-loose font-light animate-slideIn">
             <p>
-              Bio bio bio Bio bio bio Bio bio bio Bio bio bio Bio bio bio Bio bio bio
-              Bio bio bio Bio bio bio Bio bio bio Bio bio bio Bio bio bio Bio bio bio
-              Bio bio bio Bio bio bio Bio bio bio Bio bio bio Bio bio bio Bio bio bio
-              Bio bio bio Bio bio bio Bio bio bio Bio bio bio Bio bio bio Bio bio bio
+            Hey there! I'm a student at Virginia Tech, majoring in data science with a minor in computer science. 
+            I'm super passionate about building full-stack solutions and designing apps that are intuitive, interactive, 
+            and cool to use. If it involves programming, I'm all in! I'm currently on the lookout for SWE and 
+            analytical roles. Let's connect!
             </p>
           </div>
         );
       case 'education':
         return (
-          <div className="text-gray-800">
-            <p>Education information will go here...</p>
+          <div key="education" className="text-gray leading-loose font-light animate-slideIn">
+            <p>Junior at Virginia Tech, majoring in data science with a minor in computer science. I have a concentration in Cybersecurity and Cryptography!
+              I'm a lead researcher in the GrayUR's Phased Array Microphonics Team, where I spearhead a 5-member team! All in all, I love coding and building!
+            </p>
           </div>
         );
       case 'interests':
+        const selectedCategory = skillCategories.find(
+          (cat) => cat.category === selectedSkillCategory
+        );
+        
         return (
-          <div className="text-gray-800">
-            <p>Interests and skills information will go here...</p>
+          <div>
+            {selectedCategory && (
+              <div 
+                key={selectedSkillCategory}
+                className="flex flex-wrap gap-2 justify-center animate-slideIn"
+              >
+                {selectedCategory.skills.map((skill, index) => (
+                  <SkillTag key={index} skill={skill} />
+                ))}
+              </div>
+            )}
           </div>
         );
       default:
@@ -65,6 +85,7 @@ function Hero() {
               <a
                 href="https://github.com/notjoedo"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
               >
                 <Github size={28} />
@@ -72,6 +93,7 @@ function Hero() {
               <a
                 href="https://www.linkedin.com/in/hoanglehuydo/"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
               >
                 <Linkedin size={28} />
@@ -79,9 +101,17 @@ function Hero() {
               <a
                 href="https://www.instagram.com/j03do"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
               >
                 <Instagram size={28} />
+              </a>
+              <a
+                href={resume}
+                download="Joe_Do_Resume.pdf"
+                className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
+              >
+                <Download size={28} />
               </a>
             </div>
           </div>
@@ -93,8 +123,24 @@ function Hero() {
         {/* Tabs */}
         <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
 
+        {/* Filter Tags Area - Fixed height to prevent shifting */}
+        <div className="mt-8 min-h-[52px] flex items-start justify-center px-8">
+          {activeTab === 'interests' && (
+            <div className="flex flex-wrap gap-3 justify-center">
+              {skillCategories.map((category) => (
+                <FilterTag
+                  key={category.id}
+                  label={category.category}
+                  isActive={selectedSkillCategory === category.category}
+                  onClick={() => setSelectedSkillCategory(category.category)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+
         {/* Content Area */}
-        <div className="mt-8 px-8 min-h-[200px]">
+        <div className="px-8 min-h-[200px]">
           {renderContent()}
         </div>
       </div>

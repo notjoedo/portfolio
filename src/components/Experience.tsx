@@ -9,7 +9,7 @@ function Experience() {
         <div className="relative">
           {/* Timeline Bar - positioned to the right */}
           <div
-            className="absolute top-0 bottom-0 w-0.5 bg-black"
+            className="absolute top-0 bottom-0 w-[1.5px] bg-black"
             style={{ 
               left: '60%'
             }}
