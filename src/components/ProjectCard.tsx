@@ -4,7 +4,7 @@ interface ProjectCardProps {
   title: string;
   description: string;
   projectName: string;
-  image: string;
+  image?: string;
   link?: string;
   alignText: 'left' | 'right';
 }
