@@ -1,52 +1,61 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent } from "react";
 
 function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('idle');
+    setSubmitStatus("idle");
 
     try {
-      // Using Web3Forms - Free service
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // Get free key from https://web3forms.com
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          to: 'joedo2910@vt.edu',
-          subject: `Portfolio Contact from ${formData.name}`,
-        }),
-      });
+      // Using EmailJS - Free service (200 emails/month)
+      // Get credentials from https://www.emailjs.com
+      const response = await fetch(
+        "https://api.emailjs.com/api/v1.0/email/send",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+            user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+            template_params: {
+              from_name: formData.name,
+              from_email: formData.email,
+              message: formData.message,
+              to_email: "joedo2910@vt.edu",
+            },
+          }),
+        }
+      );
 
-      const result = await response.json();
-
-      if (result.success) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
       } else {
-        setSubmitStatus('error');
+        setSubmitStatus("error");
       }
     } catch (error) {
-      setSubmitStatus('error');
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -108,15 +117,19 @@ function Contact() {
                 disabled={isSubmitting}
                 className="px-8 py-3 rounded-full bg-gray-300 text-gray-700 hover:bg-[#466EA2] hover:text-white transition-all duration-300 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Sending...' : 'submit'}
+                {isSubmitting ? "Sending..." : "submit"}
               </button>
             </div>
 
-            {submitStatus === 'success' && (
-              <p className="text-green-600 text-center">Message sent successfully!</p>
+            {submitStatus === "success" && (
+              <p className="text-green-600 text-center">
+                Message sent successfully!
+              </p>
             )}
-            {submitStatus === 'error' && (
-              <p className="text-red-600 text-center">Failed to send message. Please try again.</p>
+            {submitStatus === "error" && (
+              <p className="text-red-600 text-center">
+                Failed to send message. Please try again.
+              </p>
             )}
           </form>
         </div>
@@ -126,4 +139,3 @@ function Contact() {
 }
 
 export default Contact;
-
