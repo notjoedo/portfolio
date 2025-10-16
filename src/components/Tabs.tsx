@@ -28,8 +28,8 @@ function Tabs({ tabs, activeTab, onTabChange }: TabsProps) {
   }, [activeTab, tabs]);
 
   return (
-    <div className="flex items-center justify-center">
-      <div className="inline-flex bg-[#D8D8D8] rounded-full p-1.5 relative" style={{ minWidth: '700px' }}>
+    <div className="flex items-center justify-center px-4 w-full">
+      <div className="inline-flex bg-[#D8D8D8] rounded-full p-1.5 relative w-full max-w-lg sm:max-w-md md:max-w-2xl lg:max-w-3xl">
         {/* Sliding indicator */}
         <div
           className="absolute top-1.5 bottom-1.5 rounded-full transition-all duration-300 ease-in-out"
@@ -48,11 +48,11 @@ function Tabs({ tabs, activeTab, onTabChange }: TabsProps) {
               ref={(el) => (tabRefs.current[index] = el)}
               onClick={() => onTabChange(tab.id)}
               className={`
-                relative z-10 flex-1 py-2.5 rounded-full font-medium transition-colors duration-200
+                relative z-10 flex-1 py-2 md:py-2.5 rounded-full font-medium transition-colors duration-200 text-sm md:text-base
                 ${
                   activeTab === tab.id
                     ? 'text-white'
-                    : 'text-gray-700 hover:text-gray-900'
+                    : 'text-gray-700 hover:text-gray-909'
                 }
               `}
             >

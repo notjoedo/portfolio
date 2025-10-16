@@ -26,7 +26,7 @@ export const projects: Project[] = [
     description: 'Creative Trip Planning',
     projectName: 'CodeFest w/ Marriott Project',
     image: atlasImage,
-    link: 'https://github.com/Team-Rocket-Codefest',
+    link: 'https://devpost.com/software/atlas-4kd1lf',
   },
 ];
 
