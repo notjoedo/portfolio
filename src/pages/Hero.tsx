@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Github, Linkedin, Instagram } from 'lucide-react';
 import pfp from '../images/pfp.jpg';
-import Tabs from './Tabs';
-import SkillTag from './SkillTag';
-import FilterTag from './FilterTag';
+import Tabs from '../components/Tabs';
+import SkillTag from '../components/SkillTag';
+import FilterTag from '../components/FilterTag';
 import { skillCategories } from '../data/skills';
 
 function Hero() {
@@ -31,7 +31,7 @@ function Hero() {
         );
       case 'education':
         return (
-          <div key="education" className="text-gray leading-loose font-light animate-slideIn">
+          <div key="education" className="text-gray leading-loose font-light animate-slideIn text-center md:text-left">
             <p>Junior at Virginia Tech, majoring in data science with a minor in computer science. I have a concentration in Cybersecurity and Cryptography!
               I'm a lead researcher in the GrayUR's Phased Array Microphonics Team, where I spearhead a 5-member team! All in all, I love coding and building!
             </p>
@@ -64,10 +64,10 @@ function Hero() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4 overflow-x-hidden">
       <div className="w-full max-w-4xl mx-auto">
-        {/* Profile Section - Mobile First Vertical Layout */}
-        <div className="flex flex-col items-center text-center mb-12">
+        {/* Profile Section - Responsive Layout */}
+        <div className="flex flex-col md:flex-row md:items-center md:gap-8 md:justify-center items-center text-center md:text-left mb-6 md:mb-12">
           {/* Profile Picture */}
-          <div className="mb-6">
+          <div className="mb-4 md:mb-0 flex-shrink-0">
             <img
               src={pfp}
               alt="Joe's profile"
@@ -75,48 +75,51 @@ function Hero() {
             />
           </div>
 
-          {/* Header Text */}
-          <h1 className="text-3xl md:text-5xl font-light text-gray-900 mb-6">
-            Hello, I'm Joe!
-          </h1>
+          {/* Text and Icons Container */}
+          <div className="flex flex-col items-center md:items-start">
+            {/* Header Text */}
+            <h1 className="text-3xl md:text-5xl font-light text-gray-900 mb-4 md:mb-6">
+              Hello, I'm Joe!
+            </h1>
 
-          {/* Social Media Icons */}
-          <div className="flex gap-6 justify-center">
-            <a
-              href="https://github.com/notjoedo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
-            >
-              <Github size={24} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/hoanglehuydo/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
-            >
-              <Linkedin size={24} />
-            </a>
-            <a
-              href="https://www.instagram.com/j03do"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
-            >
-              <Instagram size={24} />
-            </a>
+            {/* Social Media Icons */}
+            <div className="flex gap-4 justify-center md:justify-start">
+              <a
+                href="https://github.com/notjoedo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
+              >
+                <Github size={24} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/hoanglehuydo/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
+              >
+                <Linkedin size={24} />
+              </a>
+              <a
+                href="https://www.instagram.com/j03do"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
+              >
+                <Instagram size={24} />
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-gray-300 mb-8"></div>
+        <div className="w-full h-px bg-gray-300 mb-4 md:mb-8"></div>
 
         {/* Tabs */}
         <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
 
         {/* Filter Tags Area - Fixed height to prevent shifting */}
-        <div className="mt-8 min-h-[52px] flex items-start justify-center px-4 md:px-8">
+        <div className="mt-4 md:mt-8 min-h-[52px] flex items-start justify-center px-4 md:px-8">
           {activeTab === 'interests' && (
             <div className="flex flex-wrap gap-3 justify-center">
               {skillCategories.map((category) => (
@@ -132,7 +135,7 @@ function Hero() {
         </div>
 
         {/* Content Area */}
-        <div className="px-4 md:px-8 min-h-[200px] w-full mt-8 md:mt-0">
+        <div className={`px-4 md:px-8 min-h-[200px] w-full ${activeTab === 'interests' ? 'mt-4 md:mt-0' : 'mt-3 md:mt-0'}`}>
           {renderContent()}
         </div>
       </div>

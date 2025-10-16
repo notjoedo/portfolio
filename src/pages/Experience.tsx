@@ -1,5 +1,5 @@
 import { experiences } from '../data/experiences';
-import TimelineItem from './TimelineItem';
+import TimelineItem from '../components/TimelineItem';
 
 function Experience() {
   return (
