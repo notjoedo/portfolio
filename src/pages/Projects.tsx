@@ -16,6 +16,7 @@ function Projects() {
               image={project.image}
               link={project.link}
               alignText={index === 0 ? 'left' : 'right'}
+              isInternal={project.isInternal}
             />
           ))}
         </div>

@@ -9,6 +9,7 @@ export interface Project {
   projectName: string;
   image?: string;
   link?: string;
+  isInternal?: boolean;
 }
 
 export const projects: Project[] = [
@@ -26,7 +27,8 @@ export const projects: Project[] = [
     description: 'Creative Trip Planning',
     projectName: 'CodeFest w/ Marriott Project',
     image: atlasImage,
-    link: 'https://devpost.com/software/atlas-4kd1lf',
+    link: '/atlas',
+    isInternal: true,
   },
 ];
 

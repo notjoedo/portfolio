@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ProjectCardProps {
   title: string;
@@ -7,9 +8,10 @@ interface ProjectCardProps {
   image?: string;
   link?: string;
   alignText: 'left' | 'right';
+  isInternal?: boolean;
 }
 
-function ProjectCard({ title, description, projectName, image, link, alignText }: ProjectCardProps) {
+function ProjectCard({ title, description, projectName, image, link, alignText, isInternal = false }: ProjectCardProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -57,12 +59,36 @@ function ProjectCard({ title, description, projectName, image, link, alignText }
       {isMobile && (
         <div className="flex flex-col items-center text-center w-full max-w-sm mx-auto px-4">
           {/* Card/Image */}
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group mb-4 w-full"
-          >
+          {isInternal ? (
+            <Link
+              to={link || '#'}
+              className="block group mb-4 w-full"
+            >
+              <div 
+                className="bg-gray-100 rounded-3xl border-2 border-gray-300 overflow-hidden hover:border-[#466EA2] transition-all duration-300 flex items-center justify-center w-full"
+                style={{ maxWidth: '340px', aspectRatio: '3/4', margin: '0 auto' }}
+              >
+                {image && !image.includes('placeholder') ? (
+                  <img 
+                    src={image} 
+                    alt={title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="text-gray-400 text-center p-6">
+                    <p className="text-sm">Project Image</p>
+                    <p className="text-xs mt-1">{title}</p>
+                  </div>
+                )}
+              </div>
+            </Link>
+          ) : (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group mb-4 w-full"
+            >
             <div 
               className="bg-gray-100 rounded-3xl border-2 border-gray-300 overflow-hidden hover:border-[#466EA2] transition-all duration-300 flex items-center justify-center w-full"
               style={{ maxWidth: '340px', aspectRatio: '3/4', margin: '0 auto' }}
@@ -81,6 +107,7 @@ function ProjectCard({ title, description, projectName, image, link, alignText }
               )}
             </div>
           </a>
+          )}
 
           {/* Title and description below the card */}
           <div className="mt-2">
@@ -114,30 +141,55 @@ function ProjectCard({ title, description, projectName, image, link, alignText }
           </div>
 
           {/* Card */}
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group flex-shrink-0"
-          >
-            <div 
-              className="bg-gray-100 rounded-3xl border-2 border-gray-300 overflow-hidden hover:border-[#466EA2] transition-all duration-300 flex items-center justify-center"
-              style={{ width: '300px', height: '400px' }}
+          {isInternal ? (
+            <Link
+              to={link || '#'}
+              className="block group flex-shrink-0"
             >
-              {image && !image.includes('placeholder') ? (
-                <img 
-                  src={image} 
-                  alt={title}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <div className="text-gray-400 text-center p-6">
-                  <p className="text-sm">Project Image</p>
-                  <p className="text-xs mt-1">{title}</p>
-                </div>
-              )}
-            </div>
-          </a>
+              <div 
+                className="bg-gray-100 rounded-3xl border-2 border-gray-300 overflow-hidden hover:border-[#466EA2] transition-all duration-300 flex items-center justify-center"
+                style={{ width: '300px', height: '400px' }}
+              >
+                {image && !image.includes('placeholder') ? (
+                  <img 
+                    src={image} 
+                    alt={title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="text-gray-400 text-center p-6">
+                    <p className="text-sm">Project Image</p>
+                    <p className="text-xs mt-1">{title}</p>
+                  </div>
+                )}
+              </div>
+            </Link>
+          ) : (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group flex-shrink-0"
+            >
+              <div 
+                className="bg-gray-100 rounded-3xl border-2 border-gray-300 overflow-hidden hover:border-[#466EA2] transition-all duration-300 flex items-center justify-center"
+                style={{ width: '300px', height: '400px' }}
+              >
+                {image && !image.includes('placeholder') ? (
+                  <img 
+                    src={image} 
+                    alt={title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="text-gray-400 text-center p-6">
+                    <p className="text-sm">Project Image</p>
+                    <p className="text-xs mt-1">{title}</p>
+                  </div>
+                )}
+              </div>
+            </a>
+          )}
         </div>
       )}
     </div>

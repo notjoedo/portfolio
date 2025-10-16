@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -20,6 +20,14 @@
     animation: slideIn 0.4s ease-out;
   }
 
+  .animate-slideInFromTop {
+    animation: slideInFromTop 0.6s ease-out;
+  }
+
+  .animate-slideInFromBottom {
+    animation: slideInFromBottom 0.6s ease-out;
+  }
+
   @keyframes slideIn {
     from {
       opacity: 0;
@@ -28,6 +36,28 @@
     to {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromTop {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInFromBottom {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
