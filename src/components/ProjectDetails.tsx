@@ -1,4 +1,4 @@
-import { Award } from 'lucide-react';
+import { Award } from "lucide-react";
 
 interface ProjectDetailsProps {
   title: string;
@@ -8,26 +8,38 @@ interface ProjectDetailsProps {
   linkUrl: string;
 }
 
-function ProjectDetails({ title, event, achievement, linkText, linkUrl }: ProjectDetailsProps) {
+function ProjectDetails({
+  title,
+  event,
+  achievement,
+  linkText,
+  linkUrl,
+}: ProjectDetailsProps) {
   return (
-    <div className="text-md font-semibold text-center">
+    <div className="text-sm lg:text-md font-semibold text-center px-2">
       {/* Project Title */}
-      <div className="mb-8">
-        <h1 className="text-4xl font-semibold text-orange-500 tracking-widest transition-all duration-500 ease-in-out transform">
+      <div className="mb-4 lg:mb-6 xl:mb-8">
+        <h1 className="text-2xl lg:text-3xl xl:text-4xl font-semibold text-orange-500 tracking-widest transition-all duration-500 ease-in-out transform break-words">
           {title}
         </h1>
       </div>
-      
-      <p className="text-gray-500 font-light tracking-wider">{event}</p>
-      <div className="flex items-center justify-center gap-1">
-        <span className="text-gray-500">{achievement}</span>
-        <Award size={20} className="text-orange-500" strokeWidth={1.5} />
+
+      <p className="text-xs lg:text-sm text-gray-500 font-light tracking-wider mb-2">
+        {event}
+      </p>
+      <div className="flex items-center justify-center gap-1 mb-2">
+        <span className="text-xs lg:text-sm text-gray-500">{achievement}</span>
+        <Award
+          size={16}
+          className="text-orange-500 lg:w-5 lg:h-5"
+          strokeWidth={1.5}
+        />
       </div>
-      <a 
+      <a
         href={linkUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-orange-500 underline hover:text-orange-600 transition-colors duration-200 font-light tracking-wider"
+        className="text-xs lg:text-sm text-orange-500 underline hover:text-orange-600 transition-colors duration-200 font-light tracking-wider break-words"
       >
         {linkText}
       </a>
