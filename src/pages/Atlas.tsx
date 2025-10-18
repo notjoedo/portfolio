@@ -13,9 +13,20 @@ import { ExternalLink } from "lucide-react";
 
 function Atlas() {
   const [navbarTitle, setNavbarTitle] = useState("ATLAS");
+  const [isLoaded, setIsLoaded] = useState(false);
   const problemSectionRef = useRef<HTMLDivElement>(null);
   const solutionSectionRef = useRef<HTMLDivElement>(null);
   const challengesSectionRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to top when component mounts and trigger fade-in
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // Trigger fade-in animation after a brief delay
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 50);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +80,7 @@ function Atlas() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row">
+    <div className={`min-h-screen flex flex-col lg:flex-row transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       {/* Navbar Section */}
       <AtlasNavbar title={navbarTitle} />
 

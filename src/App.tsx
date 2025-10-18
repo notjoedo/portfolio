@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Hero from './pages/Hero';
 import Experience from './pages/Experience';
 import Projects from './pages/Projects';
@@ -8,8 +9,18 @@ import Footer from './components/Footer';
 
 // Home page component
 function HomePage() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 50);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <>
+    <div className={`transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       <Hero />
       <Experience />
       <Projects />
@@ -17,7 +28,7 @@ function HomePage() {
         <div className="w-full h-px bg-gray-300"></div>
       </div>
       <Contact />
-    </>
+    </div>
   );
 }
 
