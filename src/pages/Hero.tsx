@@ -1,51 +1,65 @@
-import { useState } from 'react';
-import { Github, Linkedin, Instagram } from 'lucide-react';
-import pfp from '../images/pfp.jpg';
-import Tabs from '../components/Tabs';
-import SkillTag from '../components/SkillTag';
-import FilterTag from '../components/FilterTag';
-import { skillCategories } from '../data/skills';
+import { useState } from "react";
+import { Github, Linkedin, Instagram } from "lucide-react";
+import pfp from "../images/pfp.jpg";
+import Tabs from "../components/Tabs";
+import SkillTag from "../components/SkillTag";
+import FilterTag from "../components/FilterTag";
+import { skillCategories } from "../data/skills";
 
 function Hero() {
-  const [activeTab, setActiveTab] = useState('bio');
-  const [selectedSkillCategory, setSelectedSkillCategory] = useState('Languages');
+  const [activeTab, setActiveTab] = useState("bio");
+  const [selectedSkillCategory, setSelectedSkillCategory] =
+    useState("Languages");
 
   const tabs = [
-    { id: 'bio', label: 'bio' },
-    { id: 'education', label: 'education' },
-    { id: 'interests', label: 'interests & skills' },
+    { id: "bio", label: "bio" },
+    { id: "education", label: "education" },
+    { id: "interests", label: "interests & skills" },
   ];
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'bio':
+      case "bio":
         return (
-          <div key="bio" className="text-gray leading-loose font-light animate-slideIn text-center md:text-left">
+          <div
+            key="bio"
+            className="text-gray leading-loose font-light animate-slideIn text-center md:text-left"
+          >
             <p>
-            Hey there! I'm a student at Virginia Tech, majoring in data science with a minor in computer science. 
-            I'm super passionate about building full-stack solutions and designing apps that are intuitive, interactive, 
-            and cool to use. If it involves programming, I'm all in! I'm currently on the lookout for SWE and 
-            analytical roles. Let's connect!
+              Hey there! I'm a student at Virginia Tech, majoring in data
+              science with a minor in computer science. I'm super passionate
+              about building full-stack solutions and designing apps that are
+              intuitive, interactive, and cool to use. If it involves
+              programming, I'm all in! I'm currently on the lookout for SWE and
+              analytical roles. Let's connect!
             </p>
           </div>
         );
-      case 'education':
+      case "education":
         return (
-          <div key="education" className="text-gray leading-loose font-light animate-slideIn text-center md:text-left">
-            <p>Junior at Virginia Tech, majoring in data science with a minor in computer science. I have a concentration in Cybersecurity and Cryptography!
-              I'm a lead researcher in the GrayUR's Phased Array Microphonics Team, where I spearhead a 5-member team! All in all, I love coding and building!
+          <div
+            key="education"
+            className="text-gray leading-loose font-light animate-slideIn text-center md:text-left"
+          >
+            <p>
+              Junior at Virginia Tech, majoring in data science with a minor in
+              computer science. I have a concentration in Cybersecurity and
+              Cryptography! I'm also a lead researcher in the GrayUR's Phased
+              Array Microphonics Team, where I spearhead a 5-member team! I'm
+              also a part of the Virginia Tech SASE (Society of Asian Scientists
+              and Engineers).
             </p>
           </div>
         );
-      case 'interests':
+      case "interests":
         const selectedCategory = skillCategories.find(
           (cat) => cat.category === selectedSkillCategory
         );
-        
+
         return (
           <div>
             {selectedCategory && (
-              <div 
+              <div
                 key={selectedSkillCategory}
                 className="flex flex-wrap gap-2 justify-center animate-slideIn"
               >
@@ -79,9 +93,11 @@ function Hero() {
           <div className="flex flex-col items-center md:items-start">
             {/* Header Text */}
             <h1 className="text-3xl md:text-5xl font-light text-gray-900 mb-4 md:mb-6">
-              Hello, I'm Joe!
+              Hello, I'm Hoang!
             </h1>
-
+            <h2 className="text-lg md:text-xl font-light text-gray-500 mb-4 md:mb-6">
+              I also go by Joe :)
+            </h2>
             {/* Social Media Icons */}
             <div className="flex gap-4 justify-center md:justify-start">
               <a
@@ -120,7 +136,7 @@ function Hero() {
 
         {/* Filter Tags Area - Fixed height to prevent shifting */}
         <div className="mt-4 md:mt-8 min-h-[52px] flex items-start justify-center px-4 md:px-8">
-          {activeTab === 'interests' && (
+          {activeTab === "interests" && (
             <div className="flex flex-wrap gap-3 justify-center">
               {skillCategories.map((category) => (
                 <FilterTag
@@ -135,7 +151,11 @@ function Hero() {
         </div>
 
         {/* Content Area */}
-        <div className={`px-4 md:px-8 min-h-[200px] w-full ${activeTab === 'interests' ? 'mt-4 md:mt-0' : 'mt-3 md:mt-0'}`}>
+        <div
+          className={`px-4 md:px-8 min-h-[200px] w-full ${
+            activeTab === "interests" ? "mt-4 md:mt-0" : "mt-3 md:mt-0"
+          }`}
+        >
           {renderContent()}
         </div>
       </div>
@@ -144,4 +164,3 @@ function Hero() {
 }
 
 export default Hero;
-
