@@ -74,40 +74,49 @@ function Contact() {
           </div>
 
           {/* Right side - Form */}
-          <form onSubmit={handleSubmit} className="flex-1 w-full space-y-6">
+          <form onSubmit={handleSubmit} className="flex-1 w-full space-y-6" aria-label="Contact form">
             <div>
+              <label htmlFor="name" className="sr-only">Name</label>
               <input
                 type="text"
+                id="name"
                 name="name"
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-6 py-3 rounded-full border-2 border-gray-300 focus:border-[#466EA2] focus:outline-none transition-colors duration-200"
+                aria-required="true"
+                className="w-full px-6 py-3 rounded-full border-2 border-gray-300 focus:border-[#466EA2] focus:outline-none focus:ring-2 focus:ring-[#466EA2] focus:ring-offset-2 transition-colors duration-200"
               />
             </div>
 
             <div>
+              <label htmlFor="email" className="sr-only">Email</label>
               <input
                 type="email"
+                id="email"
                 name="email"
                 placeholder="Email"
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-6 py-3 rounded-full border-2 border-gray-300 focus:border-[#466EA2] focus:outline-none transition-colors duration-200"
+                aria-required="true"
+                className="w-full px-6 py-3 rounded-full border-2 border-gray-300 focus:border-[#466EA2] focus:outline-none focus:ring-2 focus:ring-[#466EA2] focus:ring-offset-2 transition-colors duration-200"
               />
             </div>
 
             <div>
+              <label htmlFor="message" className="sr-only">Message</label>
               <textarea
+                id="message"
                 name="message"
                 placeholder="Message"
                 value={formData.message}
                 onChange={handleChange}
                 required
+                aria-required="true"
                 rows={6}
-                className="w-full px-6 py-4 rounded-3xl border-2 border-gray-300 focus:border-[#466EA2] focus:outline-none transition-colors duration-200 resize-none"
+                className="w-full px-6 py-4 rounded-3xl border-2 border-gray-300 focus:border-[#466EA2] focus:outline-none focus:ring-2 focus:ring-[#466EA2] focus:ring-offset-2 transition-colors duration-200 resize-none"
               />
             </div>
 
@@ -115,21 +124,22 @@ function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-8 py-3 rounded-full bg-gray-300 text-gray-700 hover:bg-[#466EA2] hover:text-white transition-all duration-300 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label={isSubmitting ? "Sending message" : "Submit contact form"}
+                className="px-8 py-3 rounded-full bg-gray-300 text-gray-700 hover:bg-[#466EA2] hover:text-white transition-all duration-300 font-medium disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-[#466EA2] focus:ring-offset-2"
               >
                 {isSubmitting ? "Sending..." : "submit"}
               </button>
             </div>
 
             {submitStatus === "success" && (
-              <p className="text-green-600 text-center">
+              <div role="status" aria-live="polite" className="text-green-600 text-center">
                 Message sent successfully!
-              </p>
+              </div>
             )}
             {submitStatus === "error" && (
-              <p className="text-red-600 text-center">
+              <div role="alert" aria-live="assertive" className="text-red-600 text-center">
                 Failed to send message. Please try again.
-              </p>
+              </div>
             )}
           </form>
         </div>

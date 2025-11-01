@@ -62,6 +62,7 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
           {isInternal ? (
             <Link
               to={link || '#'}
+              aria-label={`View ${title} project details`}
               className="block group mb-4 w-full"
             >
               <div 
@@ -71,7 +72,7 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
                 {image && !image.includes('placeholder') ? (
                   <img 
                     src={image} 
-                    alt={title}
+                    alt={`${title} project preview`}
                     className="w-full h-full object-cover"
                   />
                 ) : (
@@ -87,6 +88,7 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
               href={link}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`View ${title} project on external site (opens in new tab)`}
               className="block group mb-4 w-full"
             >
             <div 
@@ -96,7 +98,7 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
               {image && !image.includes('placeholder') ? (
                 <img 
                   src={image} 
-                  alt={title}
+                  alt={`${title} project preview`}
                   className="w-full h-full object-cover"
                 />
               ) : (
@@ -144,6 +146,7 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
           {isInternal ? (
             <Link
               to={link || '#'}
+              aria-label={`View ${title} project details`}
               className="block group flex-shrink-0"
             >
               <div 
@@ -153,7 +156,7 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
                 {image && !image.includes('placeholder') ? (
                   <img 
                     src={image} 
-                    alt={title}
+                    alt={`${title} project preview`}
                     className="w-full h-full object-cover"
                   />
                 ) : (
@@ -169,6 +172,7 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
               href={link}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`View ${title} project on external site (opens in new tab)`}
               className="block group flex-shrink-0"
             >
               <div 
@@ -178,7 +182,7 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
                 {image && !image.includes('placeholder') ? (
                   <img 
                     src={image} 
-                    alt={title}
+                    alt={`${title} project preview`}
                     className="w-full h-full object-cover"
                   />
                 ) : (

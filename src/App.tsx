@@ -34,19 +34,28 @@ function HomePage() {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={
-          <div className="min-h-screen flex flex-col overflow-x-hidden">
-            <div className="flex-grow">
-              <HomePage />
+    <>
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:p-4 focus:bg-blue-600 focus:text-white focus:rounded-md focus:shadow-lg">
+        Skip to main content
+      </a>
+      <Router>
+        <Routes>
+          <Route path="/" element={
+            <div className="min-h-screen flex flex-col overflow-x-hidden">
+              <main id="main-content" className="flex-grow">
+                <HomePage />
+              </main>
+              <Footer />
             </div>
-            <Footer />
-          </div>
-        } />
-        <Route path="/atlas" element={<Atlas />} />
-      </Routes>
-    </Router>
+          } />
+          <Route path="/atlas" element={
+            <main id="main-content">
+              <Atlas />
+            </main>
+          } />
+        </Routes>
+      </Router>
+    </>
   );
 }
 

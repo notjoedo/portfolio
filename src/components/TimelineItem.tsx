@@ -47,6 +47,7 @@ function TimelineItem({ experience }: TimelineItemProps) {
     <div
       ref={itemRef}
       className="relative mb-12 md:mb-16"
+      role="listitem"
     >
       {/* Mobile Layout */}
       {isMobile && (
@@ -82,7 +83,7 @@ function TimelineItem({ experience }: TimelineItemProps) {
             </div>
 
             {/* Timeline Dot - positioned to align with timeline line */}
-            <div className="absolute right-[14px] top-0 w-3 h-3">
+            <div className="absolute right-[14px] top-0 w-3 h-3" aria-hidden="true">
               <div
                 className="w-3 h-3 rounded-full"
                 style={{ backgroundColor: '#466EA2' }}
@@ -133,6 +134,7 @@ function TimelineItem({ experience }: TimelineItemProps) {
             transform: 'translateX(-42%)',
             zIndex: 10
           }}
+          aria-hidden="true"
         >
           <div
             className="w-4 h-4 rounded-full"

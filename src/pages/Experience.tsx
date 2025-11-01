@@ -3,8 +3,9 @@ import TimelineItem from '../components/TimelineItem';
 
 function Experience() {
   return (
-    <section className="min-h-screen bg-white py-20 px-4 md:px-8">
+    <section className="min-h-screen bg-white py-20 px-4 md:px-8" aria-label="Experience">
       <div className="max-w-5xl mx-auto">
+        <h2 className="sr-only">Work Experience</h2>
         {/* Timeline Container */}
         <div className="relative">
           {/* Desktop Timeline Bar - positioned to the right */}
@@ -13,6 +14,7 @@ function Experience() {
             style={{ 
               left: '60%'
             }}
+            aria-hidden="true"
           />
 
           {/* Mobile Timeline Bar - positioned to the right */}
@@ -21,10 +23,11 @@ function Experience() {
             style={{ 
               right: '20px'
             }}
+            aria-hidden="true"
           />
 
           {/* Timeline Items */}
-          <div className="relative">
+          <div className="relative" role="list">
             {[...experiences].map((experience, index) => (
               <TimelineItem key={`${experience.id}-${index}`} experience={experience} />
             ))}

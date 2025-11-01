@@ -9,14 +9,15 @@ function AtlasNavbar({ title = "ATLAS" }: AtlasNavbarProps) {
   return (
     <>
       {/* Mobile Header - Shows horizontally at top on mobile */}
-      <div className="lg:hidden bg-opacity-0 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50">
+      <nav className="lg:hidden bg-opacity-0 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50">
         <div className="p-4 flex items-center justify-between">
           {/* Back Button */}
           <Link
             to="/"
+            aria-label="Back to home page"
             className="inline-flex items-center justify-center w-16 h-8 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-200"
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path
                 d="M10 12L6 8L10 4"
                 stroke="currentColor"
@@ -37,17 +38,18 @@ function AtlasNavbar({ title = "ATLAS" }: AtlasNavbarProps) {
           {/* Spacer for symmetry */}
           <div className="w-16"></div>
         </div>
-      </div>
+      </nav>
 
       {/* Desktop Sidebar - Shows on larger screens */}
-      <div className="hidden lg:flex lg:w-1/6 lg:min-w-[200px] xl:w-1/5 bg-white p-6 xl:p-8 flex-col sticky top-0 h-screen">
+      <nav className="hidden lg:flex lg:w-1/6 lg:min-w-[200px] xl:w-1/5 bg-white p-6 xl:p-8 flex-col sticky top-0 h-screen">
         {/* Back Button */}
         <div className="flex justify-end mb-8">
           <Link
             to="/"
+            aria-label="Back to home page"
             className="inline-flex items-center justify-center w-16 h-8 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-200"
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path
                 d="M10 12L6 8L10 4"
                 stroke="currentColor"
@@ -86,7 +88,7 @@ function AtlasNavbar({ title = "ATLAS" }: AtlasNavbarProps) {
             </div>
           )}
         </div>
-      </div>
+      </nav>
     </>
   );
 }

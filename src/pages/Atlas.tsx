@@ -88,7 +88,7 @@ function Atlas() {
       <div className="flex-1 bg-gray-200 p-4 sm:p-6 lg:p-8">
         {/* Atlas Logo */}
         <div className="flex justify-center mb-8 sm:mb-12 mt-4 sm:mt-8 lg:mt-12">
-          <img src={Logo} alt="ATLAS" className="h-24 sm:h-32 lg:h-40 w-auto" />
+          <img src={Logo} alt="ATLAS logo" className="h-24 sm:h-32 lg:h-40 w-auto" />
         </div>
 
         <ProjectMetadata />
@@ -375,10 +375,11 @@ function Atlas() {
             href="https://devpost.com/software/atlas-4kd1lf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-orange-500 text-base sm:text-lg font-bold hover:text-orange-600 transition-colors duration-300"
+            aria-label="View ATLAS Devpost submission (opens in new tab)"
+            className="inline-flex items-center gap-2 text-orange-500 text-base sm:text-lg font-bold hover:text-orange-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
           >
             Devpost Link
-            <ExternalLink size={16} className="sm:w-5 sm:h-5" />
+            <ExternalLink size={16} className="sm:w-5 sm:h-5" aria-hidden="true" />
           </a>
         </div>
       </div>

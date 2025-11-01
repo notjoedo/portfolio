@@ -33,13 +33,15 @@ function ProjectDetails({
           size={16}
           className="text-orange-500 lg:w-5 lg:h-5"
           strokeWidth={1.5}
+          aria-hidden="true"
         />
       </div>
       <a
         href={linkUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-xs lg:text-sm text-orange-500 underline hover:text-orange-600 transition-colors duration-200 font-light tracking-wider break-words"
+        aria-label={`View ${linkText} on external site (opens in new tab)`}
+        className="text-xs lg:text-sm text-orange-500 underline hover:text-orange-600 transition-colors duration-200 font-light tracking-wider break-words focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
       >
         {linkText}
       </a>

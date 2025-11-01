@@ -76,7 +76,7 @@ function Hero() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4 overflow-x-hidden">
+    <section className="min-h-screen flex items-center justify-center bg-white px-4 overflow-x-hidden">
       <div className="w-full max-w-4xl mx-auto">
         {/* Profile Section - Responsive Layout */}
         <div className="flex flex-col md:flex-row md:items-center md:gap-8 md:justify-center items-center text-center md:text-left mb-6 md:mb-12">
@@ -84,7 +84,7 @@ function Hero() {
           <div className="mb-4 md:mb-0 flex-shrink-0">
             <img
               src={pfp}
-              alt="Joe's profile"
+              alt="Joe Do's profile picture"
               className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover"
             />
           </div>
@@ -95,44 +95,49 @@ function Hero() {
             <h1 className="text-3xl md:text-5xl font-light text-gray-900 mb-4 md:mb-6">
               Hello, I'm Hoang!
             </h1>
-            <h2 className="text-lg md:text-xl font-light text-gray-500 mb-4 md:mb-6">
+            <p className="text-lg md:text-xl font-light text-gray-500 mb-4 md:mb-6">
               I also go by Joe :)
-            </h2>
+            </p>
             {/* Social Media Icons */}
             <div className="flex gap-4 justify-center md:justify-start">
               <a
                 href="https://github.com/notjoedo"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Joe's GitHub profile"
                 className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
               >
-                <Github size={24} />
+                <Github size={24} aria-hidden="true" />
               </a>
               <a
                 href="https://www.linkedin.com/in/hoanglehuydo/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Joe's LinkedIn profile"
                 className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
               >
-                <Linkedin size={24} />
+                <Linkedin size={24} aria-hidden="true" />
               </a>
               <a
                 href="https://www.instagram.com/j03do"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Joe's Instagram profile"
                 className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
               >
-                <Instagram size={24} />
+                <Instagram size={24} aria-hidden="true" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-gray-300 mb-4 md:mb-8"></div>
+        <div className="w-full h-px bg-gray-300 mb-4 md:mb-8" role="separator"></div>
 
         {/* Tabs */}
-        <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
+        <div role="tablist" aria-label="About Joe">
+          <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
+        </div>
 
         {/* Filter Tags Area - Fixed height to prevent shifting */}
         <div className="mt-4 md:mt-8 min-h-[52px] flex items-start justify-center px-4 md:px-8">
@@ -156,10 +161,12 @@ function Hero() {
             activeTab === "interests" ? "mt-4 md:mt-0" : "mt-3 md:mt-0"
           }`}
         >
-          {renderContent()}
+          <div role="tabpanel" id={`tabpanel-${activeTab}`} aria-labelledby={`tab-${activeTab}`} aria-live="polite">
+            {renderContent()}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
