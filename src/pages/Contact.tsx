@@ -1,4 +1,5 @@
 import { useState, FormEvent } from "react";
+import { motion } from "framer-motion";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -62,22 +63,65 @@ function Contact() {
     });
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section className="bg-white pt-12 pb-4 mb-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="flex flex-col md:flex-row gap-12 items-start">
+        <motion.div
+          className="flex flex-col md:flex-row gap-12 items-start"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {/* Left side - Heading */}
-          <div className="flex-shrink-0">
-            <h2 className="text-4xl font-light text-gray-900">
+          <motion.div className="flex-shrink-0" variants={itemVariants}>
+            <motion.h2
+              className="text-4xl font-light text-gray-900"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
               Lets work together.
-            </h2>
-          </div>
+            </motion.h2>
+          </motion.div>
 
           {/* Right side - Form */}
-          <form onSubmit={handleSubmit} className="flex-1 w-full space-y-6" aria-label="Contact form">
-            <div>
+          <motion.form
+            onSubmit={handleSubmit}
+            className="flex-1 w-full space-y-6"
+            aria-label="Contact form"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            <motion.div variants={itemVariants}>
               <label htmlFor="name" className="sr-only">Name</label>
-              <input
+              <motion.input
                 type="text"
                 id="name"
                 name="name"
@@ -87,12 +131,14 @@ function Contact() {
                 required
                 aria-required="true"
                 className="w-full px-6 py-3 rounded-full border-2 border-gray-300 focus:border-[#466EA2] focus:outline-none focus:ring-2 focus:ring-[#466EA2] focus:ring-offset-2 transition-colors duration-200"
+                whileFocus={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
               />
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div variants={itemVariants}>
               <label htmlFor="email" className="sr-only">Email</label>
-              <input
+              <motion.input
                 type="email"
                 id="email"
                 name="email"
@@ -102,12 +148,14 @@ function Contact() {
                 required
                 aria-required="true"
                 className="w-full px-6 py-3 rounded-full border-2 border-gray-300 focus:border-[#466EA2] focus:outline-none focus:ring-2 focus:ring-[#466EA2] focus:ring-offset-2 transition-colors duration-200"
+                whileFocus={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
               />
-            </div>
+            </motion.div>
 
-            <div>
+            <motion.div variants={itemVariants}>
               <label htmlFor="message" className="sr-only">Message</label>
-              <textarea
+              <motion.textarea
                 id="message"
                 name="message"
                 placeholder="Message"
@@ -117,32 +165,51 @@ function Contact() {
                 aria-required="true"
                 rows={6}
                 className="w-full px-6 py-4 rounded-3xl border-2 border-gray-300 focus:border-[#466EA2] focus:outline-none focus:ring-2 focus:ring-[#466EA2] focus:ring-offset-2 transition-colors duration-200 resize-none"
+                whileFocus={{ scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 300 }}
               />
-            </div>
+            </motion.div>
 
-            <div className="flex justify-end">
-              <button
+            <motion.div className="flex justify-end" variants={itemVariants}>
+              <motion.button
                 type="submit"
                 disabled={isSubmitting}
                 aria-label={isSubmitting ? "Sending message" : "Submit contact form"}
                 className="px-8 py-3 rounded-full bg-gray-300 text-gray-700 hover:bg-[#466EA2] hover:text-white transition-all duration-300 font-medium disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-[#466EA2] focus:ring-offset-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
                 {isSubmitting ? "Sending..." : "submit"}
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
 
             {submitStatus === "success" && (
-              <div role="status" aria-live="polite" className="text-green-600 text-center">
+              <motion.div
+                role="status"
+                aria-live="polite"
+                className="text-green-600 text-center"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 Message sent successfully!
-              </div>
+              </motion.div>
             )}
             {submitStatus === "error" && (
-              <div role="alert" aria-live="assertive" className="text-red-600 text-center">
+              <motion.div
+                role="alert"
+                aria-live="assertive"
+                className="text-red-600 text-center"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+              >
                 Failed to send message. Please try again.
-              </div>
+              </motion.div>
             )}
-          </form>
-        </div>
+          </motion.form>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Github, Linkedin, Instagram } from "lucide-react";
+import { motion } from "framer-motion";
 import pfp from "../images/pfp.jpg";
 import Tabs from "../components/Tabs";
 import SkillTag from "../components/SkillTag";
@@ -21,9 +22,13 @@ function Hero() {
     switch (activeTab) {
       case "bio":
         return (
-          <div
+          <motion.div
             key="bio"
-            className="text-gray leading-loose font-light animate-slideIn text-center md:text-left"
+            className="text-gray leading-loose font-light text-center md:text-left"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.4 }}
           >
             <p>
               Hey there! I'm a student at Virginia Tech, majoring in data
@@ -33,13 +38,17 @@ function Hero() {
               programming, I'm all in! I'm currently on the lookout for SWE and
               analytical roles. Let's connect!
             </p>
-          </div>
+          </motion.div>
         );
       case "education":
         return (
-          <div
+          <motion.div
             key="education"
-            className="text-gray leading-loose font-light animate-slideIn text-center md:text-left"
+            className="text-gray leading-loose font-light text-center md:text-left"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.4 }}
           >
             <p>
               Junior at Virginia Tech, majoring in data science with a minor in
@@ -49,7 +58,7 @@ function Hero() {
               also a part of the Virginia Tech SASE (Society of Asian Scientists
               and Engineers).
             </p>
-          </div>
+          </motion.div>
         );
       case "interests":
         const selectedCategory = skillCategories.find(
@@ -57,18 +66,37 @@ function Hero() {
         );
 
         return (
-          <div>
+          <motion.div
+            key={selectedSkillCategory}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+          >
             {selectedCategory && (
-              <div
-                key={selectedSkillCategory}
-                className="flex flex-wrap gap-2 justify-center animate-slideIn"
+              <motion.div
+                className="flex flex-wrap gap-2 justify-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4 }}
               >
                 {selectedCategory.skills.map((skill, index) => (
-                  <SkillTag key={index} skill={skill} />
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: index * 0.05,
+                      type: "spring",
+                      stiffness: 200,
+                    }}
+                  >
+                    <SkillTag skill={skill} />
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             )}
-          </div>
+          </motion.div>
         );
       default:
         return null;
@@ -81,79 +109,136 @@ function Hero() {
         {/* Profile Section - Responsive Layout */}
         <div className="flex flex-col md:flex-row md:items-center md:gap-8 md:justify-center items-center text-center md:text-left mb-6 md:mb-12">
           {/* Profile Picture */}
-          <div className="mb-4 md:mb-0 flex-shrink-0">
-            <img
+          <motion.div
+            className="mb-4 md:mb-0 flex-shrink-0"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <motion.img
               src={pfp}
               alt="Joe Do's profile picture"
               className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
             />
-          </div>
+          </motion.div>
 
           {/* Text and Icons Container */}
           <div className="flex flex-col items-center md:items-start">
             {/* Header Text */}
-            <h1 className="text-3xl md:text-5xl font-light text-gray-900 mb-4 md:mb-6">
+            <motion.h1
+              className="text-3xl md:text-5xl font-light text-gray-900 mb-4 md:mb-6"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               Hello, I'm Hoang!
-            </h1>
-            <p className="text-lg md:text-xl font-light text-gray-500 mb-4 md:mb-6">
+            </motion.h1>
+            <motion.p
+              className="text-lg md:text-xl font-light text-gray-500 mb-4 md:mb-6"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               I also go by Joe :)
-            </p>
+            </motion.p>
             {/* Social Media Icons */}
-            <div className="flex gap-4 justify-center md:justify-start">
-              <a
-                href="https://github.com/notjoedo"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Joe's GitHub profile"
-                className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
-              >
-                <Github size={24} aria-hidden="true" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/hoanglehuydo/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Joe's LinkedIn profile"
-                className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
-              >
-                <Linkedin size={24} aria-hidden="true" />
-              </a>
-              <a
-                href="https://www.instagram.com/j03do"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Joe's Instagram profile"
-                className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
-              >
-                <Instagram size={24} aria-hidden="true" />
-              </a>
-            </div>
+            <motion.div
+              className="flex gap-4 justify-center md:justify-start"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              {[
+                { href: "https://github.com/notjoedo", icon: Github, label: "Joe's GitHub profile" },
+                { href: "https://www.linkedin.com/in/hoanglehuydo/", icon: Linkedin, label: "Joe's LinkedIn profile" },
+                { href: "https://www.instagram.com/j03do", icon: Instagram, label: "Joe's Instagram profile" },
+              ].map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <motion.a
+                    key={social.href}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: 0.5 + index * 0.1,
+                      type: "spring",
+                      stiffness: 200,
+                    }}
+                    whileHover={{ scale: 1.2, rotate: 5 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Icon size={24} aria-hidden="true" />
+                  </motion.a>
+                );
+              })}
+            </motion.div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-gray-300 mb-4 md:mb-8" role="separator"></div>
+        <motion.div
+          className="w-full h-px bg-gray-300 mb-4 md:mb-8"
+          role="separator"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        ></motion.div>
 
         {/* Tabs */}
-        <div role="tablist" aria-label="About Joe">
+        <motion.div
+          role="tablist"
+          aria-label="About Joe"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+        >
           <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
-        </div>
+        </motion.div>
 
         {/* Filter Tags Area - Fixed height to prevent shifting */}
-        <div className="mt-4 md:mt-8 min-h-[52px] flex items-start justify-center px-4 md:px-8">
+        <motion.div
+          className="mt-4 md:mt-8 min-h-[52px] flex items-start justify-center px-4 md:px-8"
+          initial={false}
+          animate={{ opacity: activeTab === "interests" ? 1 : 0.5 }}
+          transition={{ duration: 0.3 }}
+        >
           {activeTab === "interests" && (
-            <div className="flex flex-wrap gap-3 justify-center">
-              {skillCategories.map((category) => (
-                <FilterTag
+            <motion.div
+              className="flex flex-wrap gap-3 justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4 }}
+            >
+              {skillCategories.map((category, index) => (
+                <motion.div
                   key={category.id}
-                  label={category.category}
-                  isActive={selectedSkillCategory === category.category}
-                  onClick={() => setSelectedSkillCategory(category.category)}
-                />
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.3,
+                    delay: index * 0.05,
+                    type: "spring",
+                    stiffness: 200,
+                  }}
+                >
+                  <FilterTag
+                    label={category.category}
+                    isActive={selectedSkillCategory === category.category}
+                    onClick={() => setSelectedSkillCategory(category.category)}
+                  />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
 
         {/* Content Area */}
         <div
@@ -161,9 +246,17 @@ function Hero() {
             activeTab === "interests" ? "mt-4 md:mt-0" : "mt-3 md:mt-0"
           }`}
         >
-          <div role="tabpanel" id={`tabpanel-${activeTab}`} aria-labelledby={`tab-${activeTab}`} aria-live="polite">
+          <motion.div
+            role="tabpanel"
+            id={`tabpanel-${activeTab}`}
+            aria-labelledby={`tab-${activeTab}`}
+            aria-live="polite"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
             {renderContent()}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

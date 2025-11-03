@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 interface ProjectCardProps {
   title: string;
@@ -49,26 +50,36 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
   }, []);
 
   return (
-    <div
+    <motion.div
       ref={cardRef}
-      className={`transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      }`}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut",
+      }}
     >
       {/* Mobile Layout */}
       {isMobile && (
         <div className="flex flex-col items-center text-center w-full max-w-sm mx-auto px-4">
           {/* Card/Image */}
           {isInternal ? (
-            <Link
-              to={link || '#'}
-              aria-label={`View ${title} project details`}
-              className="block group mb-4 w-full"
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              <div 
-                className="bg-gray-100 rounded-3xl border-2 border-gray-300 overflow-hidden hover:border-[#466EA2] transition-all duration-300 flex items-center justify-center w-full"
-                style={{ maxWidth: '340px', aspectRatio: '3/4', margin: '0 auto' }}
+              <Link
+                to={link || '#'}
+                aria-label={`View ${title} project details`}
+                className="block group mb-4 w-full"
               >
+                <motion.div 
+                  className="bg-gray-100 rounded-3xl border-2 border-gray-300 overflow-hidden hover:border-[#466EA2] transition-all duration-300 flex items-center justify-center w-full"
+                  style={{ maxWidth: '340px', aspectRatio: '3/4', margin: '0 auto' }}
+                  whileHover={{ y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                 {image && !image.includes('placeholder') ? (
                   <img 
                     src={image} 
@@ -81,19 +92,24 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
                     <p className="text-xs mt-1">{title}</p>
                   </div>
                 )}
-              </div>
+              </motion.div>
             </Link>
+            </motion.div>
           ) : (
-            <a
+            <motion.a
               href={link}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`View ${title} project on external site (opens in new tab)`}
               className="block group mb-4 w-full"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-            <div 
+            <motion.div 
               className="bg-gray-100 rounded-3xl border-2 border-gray-300 overflow-hidden hover:border-[#466EA2] transition-all duration-300 flex items-center justify-center w-full"
               style={{ maxWidth: '340px', aspectRatio: '3/4', margin: '0 auto' }}
+              whileHover={{ y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               {image && !image.includes('placeholder') ? (
                 <img 
@@ -107,12 +123,18 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
                   <p className="text-xs mt-1">{title}</p>
                 </div>
               )}
-            </div>
-          </a>
+            </motion.div>
+          </motion.a>
           )}
 
           {/* Title and description below the card */}
-          <div className="mt-2">
+          <motion.div
+            className="mt-2"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <h3 className="text-3xl font-bold text-gray-900 mb-1">
               {title}
             </h3>
@@ -122,7 +144,7 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
             <p className="text-xs text-gray-500 mt-1">
               {projectName}
             </p>
-          </div>
+          </motion.div>
         </div>
       )}
 
@@ -144,15 +166,21 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
 
           {/* Card */}
           {isInternal ? (
-            <Link
-              to={link || '#'}
-              aria-label={`View ${title} project details`}
-              className="block group flex-shrink-0"
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              <div 
-                className="bg-gray-100 rounded-3xl border-2 border-gray-300 overflow-hidden hover:border-[#466EA2] transition-all duration-300 flex items-center justify-center"
-                style={{ width: '300px', height: '400px' }}
+              <Link
+                to={link || '#'}
+                aria-label={`View ${title} project details`}
+                className="block group flex-shrink-0"
               >
+                <motion.div 
+                  className="bg-gray-100 rounded-3xl border-2 border-gray-300 overflow-hidden hover:border-[#466EA2] transition-all duration-300 flex items-center justify-center"
+                  style={{ width: '300px', height: '400px' }}
+                  whileHover={{ y: -5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                 {image && !image.includes('placeholder') ? (
                   <img 
                     src={image} 
@@ -165,19 +193,24 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
                     <p className="text-xs mt-1">{title}</p>
                   </div>
                 )}
-              </div>
+              </motion.div>
             </Link>
+            </motion.div>
           ) : (
-            <a
+            <motion.a
               href={link}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`View ${title} project on external site (opens in new tab)`}
               className="block group flex-shrink-0"
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              <div 
+              <motion.div 
                 className="bg-gray-100 rounded-3xl border-2 border-gray-300 overflow-hidden hover:border-[#466EA2] transition-all duration-300 flex items-center justify-center"
                 style={{ width: '300px', height: '400px' }}
+                whileHover={{ y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
                 {image && !image.includes('placeholder') ? (
                   <img 
@@ -191,12 +224,12 @@ function ProjectCard({ title, description, projectName, image, link, alignText, 
                     <p className="text-xs mt-1">{title}</p>
                   </div>
                 )}
-              </div>
-            </a>
+              </motion.div>
+            </motion.a>
           )}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 
