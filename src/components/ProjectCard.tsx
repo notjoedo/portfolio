@@ -13,30 +13,8 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ title, description, projectName, image, link, alignText, isInternal = false }: ProjectCardProps) {
-  const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsVisible(entry.isIntersecting);
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
-    };
-  }, []);
 
   useEffect(() => {
     const checkMobile = () => {
