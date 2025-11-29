@@ -10,23 +10,16 @@ import PassportImage from "../images/Passport.png";
 import SocialImage from "../images/AtlasSocialMedia.png";
 import { useState, useEffect, useRef } from "react";
 import { ExternalLink } from "lucide-react";
-import { motion } from "framer-motion";
 
 function Atlas() {
   const [navbarTitle, setNavbarTitle] = useState("ATLAS");
-  const [isLoaded, setIsLoaded] = useState(false);
   const problemSectionRef = useRef<HTMLDivElement>(null);
   const solutionSectionRef = useRef<HTMLDivElement>(null);
   const challengesSectionRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to top when component mounts and trigger fade-in
+  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
-    // Trigger fade-in animation after a brief delay
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 50);
-    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -81,268 +74,151 @@ function Atlas() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className={`min-h-screen flex flex-col lg:flex-row transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+    <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Navbar Section */}
       <AtlasNavbar title={navbarTitle} />
 
       {/* Main Content Section */}
       <div className="flex-1 bg-gray-200 p-4 sm:p-6 lg:p-8">
         {/* Atlas Logo */}
-        <motion.div
-          className="flex justify-center mb-8 sm:mb-12 mt-4 sm:mt-8 lg:mt-12"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <motion.img
+        <div className="flex justify-center mb-8 sm:mb-12 mt-4 sm:mt-8 lg:mt-12">
+          <img
             src={Logo}
             alt="ATLAS logo"
             className="h-24 sm:h-32 lg:h-40 w-auto"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
           />
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
+        <div>
           <ProjectMetadata />
-        </motion.div>
+        </div>
 
         {/* Horizontal Divider */}
-        <motion.div
-          className="w-auto h-px bg-gray-300 mb-6 sm:mb-8"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        ></motion.div>
+        <div className="w-auto h-px bg-gray-300 mb-6 sm:mb-8"></div>
 
         {/* Prompt and Vision */}
-        <motion.div
-          className="ml-2 sm:ml-6 lg:ml-9 space-y-4"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-          >
+        <div className="ml-2 sm:ml-6 lg:ml-9 space-y-4">
+          <div>
             <span
               className="text-orange-500 text-2xl sm:text-4xl lg:text-5xl xl:text-[60px] tracking-wider"
               style={{ fontWeight: 200 }}
             >
               prompt:{" "}
             </span>
-            <motion.span
+            <span
               className="text-orange-500 text-2xl sm:text-4xl lg:text-5xl xl:text-[60px] italic"
               style={{ fontWeight: 200 }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
             >
               "Booking to Belonging"
-            </motion.span>
-          </motion.div>
+            </span>
+          </div>
 
-          <motion.p
-            className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-          >
+          <p className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose">
             Our vision came from the concept of a boundless canvas for travel,
             as we observed that conventional trip planners stifle the creative,
             non-linear way people dream of adventure. We set out to build a
             platform that transforms planning from a rigid task into an act of
             creation, where scattered ideas, map points, and budget details
             could be woven together into a masterpiece.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Landing Page Image */}
-        <motion.div
-          className="mt-8 sm:mt-12 lg:mt-16"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <motion.img
+        <div className="mt-8 sm:mt-12 lg:mt-16">
+          <img
             src={LandingPageImage}
             alt="Atlas Landing Page"
             className="w-full h-auto rounded-lg shadow-2xl"
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300 }}
           />
-        </motion.div>
+        </div>
 
         {/* The Problem*/}
-        <motion.div
+        <div
           ref={problemSectionRef}
           className="ml-2 sm:ml-6 lg:ml-9 space-y-4 mt-8 sm:mt-12 lg:mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
         >
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <span
               className="text-orange-500 text-2xl sm:text-4xl lg:text-5xl xl:text-[60px] italic"
               style={{ fontWeight: 200 }}
             >
               "The Problem"
             </span>
-          </motion.div>
+          </div>
 
-          <motion.p
-            className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <p className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose">
             Marriott's CodeFest's theme was "Booking to Belonging". Participants
             were tasked with building a platform that would help users book
             travel experiences and help them connect with others, creating a
             sense of belonging.
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Proposed Solution*/}
-        <motion.div
+        <div
           ref={solutionSectionRef}
           className="ml-2 sm:ml-6 lg:ml-9 space-y-4 mt-8 sm:mt-12 lg:mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
         >
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <span
               className="text-orange-500 text-2xl sm:text-4xl lg:text-5xl xl:text-[60px] italic"
               style={{ fontWeight: 200 }}
             >
               "Proposed Solution from a UI/UX Perspective"
             </span>
-          </motion.div>
+          </div>
 
           {/* Inspiration to Creation */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.span
+          <div className="space-y-2">
+            <span
               className="text-orange-500 text-xl sm:text-2xl lg:text-3xl xl:text-[40px] block"
               style={{ fontWeight: 500 }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
             >
               Inspiration to Creation
-            </motion.span>
-            <motion.p
-              className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            </span>
+            <p className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose">
               To begin my design process, I had to figure out the user story and
               how user interactions should flow. After account registration,
               users should be able to see an interactive landing page and
               immediately follow through to the feed page where inspiration and
               creation begin.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
           {/* Feed Image */}
-          <motion.div
-            className="mt-8 sm:mt-12 lg:mt-16"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.img
+          <div className="mt-8 sm:mt-12 lg:mt-16">
+            <img
               src={FeedImage}
               alt="Atlas Feed Page"
               className="w-full h-auto rounded-lg shadow-2xl"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
             />
-          </motion.div>
+          </div>
 
           {/* Infinite Canvas Atlas */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.span
+          <div className="space-y-2">
+            <span
               className="text-orange-500 text-xl sm:text-2xl lg:text-3xl xl:text-[40px] block"
               style={{ fontWeight: 500 }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
             >
               Atlas Canvas
-            </motion.span>
-            <motion.p
-              className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            </span>
+            <p className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose">
               I liked the idea of an infinite canvas to jot down ideas and
               continue adding "nodes" to the canvas as users discover new places
               or experiences. I felt like this revolutionizes the process of
               trip planning, removing the traditional checklist format and
               replacing it with a more organic and creative approach.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
           {/* Atlas Canvas Image */}
-          <motion.div
-            className="mt-8 sm:mt-12 lg:mt-16"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.img
+          <div className="mt-8 sm:mt-12 lg:mt-16">
+            <img
               src={AtlasCanvasImage}
               alt="Atlas Canvas Page"
               className="w-full h-auto rounded-lg shadow-2xl"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
             />
-          </motion.div>
+          </div>
 
           {/* Quick Note 1 */}
           <div className="space-y-2">
@@ -355,21 +231,13 @@ function Atlas() {
           </div>
 
           {/* Atlas Creation Image */}
-          <motion.div
-            className="mt-8 sm:mt-12 lg:mt-16"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.img
+          <div className="mt-8 sm:mt-12 lg:mt-16">
+            <img
               src={AtlasCreationImage}
               alt="Atlas Creation Page"
               className="w-full h-auto rounded-lg shadow-2xl"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
             />
-          </motion.div>
+          </div>
 
           {/* Quick Note 2 */}
           <div className="space-y-2">
@@ -380,102 +248,54 @@ function Atlas() {
           </div>
 
           {/* All-in-one Platform */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.span
+          <div className="space-y-2">
+            <span
               className="text-orange-500 text-xl sm:text-2xl lg:text-3xl xl:text-[40px] block"
               style={{ fontWeight: 500 }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
             >
               An all-in-one platform
-            </motion.span>
-            <motion.p
-              className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            </span>
+            <p className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose">
               After creating a canvas, what's next? I had this question in mind
               and decided, a user's experience should not stop at an Atlas
               creation. Users should be able to book their trips right then and
               there! Booking should not stop there, our platform optimizes the
               booking process by analyzing the user's board and generating an
               itinerary for them with the best deals.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
           {/* Booking Image */}
-          <motion.div
-            className="mt-8 sm:mt-12 lg:mt-16"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.img
+          <div className="mt-8 sm:mt-12 lg:mt-16">
+            <img
               src={BookingImage}
               alt="Atlas Booking Page"
               className="w-full h-auto rounded-lg shadow-2xl"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
             />
-          </motion.div>
+          </div>
 
           {/* Looking back */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.span
+          <div className="space-y-2">
+            <span
               className="text-orange-500 text-xl sm:text-2xl lg:text-3xl xl:text-[40px] block"
               style={{ fontWeight: 500 }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
             >
               Looking back...
-            </motion.span>
-            <motion.p
-              className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            </span>
+            <p className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose">
               Users should be able to see their previous trips and their Atlas
               creations. This allows users to return to the platform.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
           {/* Passport Image */}
-          <motion.div
-            className="mt-8 sm:mt-12 lg:mt-16"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.img
+          <div className="mt-8 sm:mt-12 lg:mt-16">
+            <img
               src={PassportImage}
               alt="Atlas Passport Page"
               className="w-full h-auto rounded-lg shadow-2xl"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
             />
-          </motion.div>
+          </div>
 
           {/* Quick Note 3 */}
           <div className="space-y-2">
@@ -487,107 +307,58 @@ function Atlas() {
           </div>
 
           {/* Challenges and Future Implementations*/}
-          <motion.div
+          <div
             ref={challengesSectionRef}
             className="space-y-4 mt-8 sm:mt-12 lg:mt-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
           >
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <div>
               <span
                 className="text-orange-500 text-2xl sm:text-4xl lg:text-5xl xl:text-[60px] italic"
                 style={{ fontWeight: 200 }}
               >
                 "Challenges and Future Implementations"
               </span>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Challenges */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.span
+          <div className="space-y-2">
+            <span
               className="text-orange-500 text-xl sm:text-2xl lg:text-3xl xl:text-[40px] block"
               style={{ fontWeight: 500 }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
             >
               Challenges
-            </motion.span>
-            <motion.p
-              className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            </span>
+            <p className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose">
               The biggest challenge during this CodeFest was the time
               constraint. Figuring out how to tie together a cohesive user story
               and flow was difficult as we often drifted away from the original
               problem.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
           {/* Future Implementations */}
-          <motion.div
-            className="space-y-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.span
+          <div className="space-y-2">
+            <span
               className="text-orange-500 text-xl sm:text-2xl lg:text-3xl xl:text-[40px] block"
               style={{ fontWeight: 500 }}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
             >
               Future Implementations
-            </motion.span>
-            <motion.p
-              className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            </span>
+            <p className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose">
               I designed a wireframe to showcase how a social aspect can keep
               users engaged and coming back to Atlas.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
           {/* Atlas Social Media Image */}
-          <motion.div
-            className="mt-8 sm:mt-12 lg:mt-16"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <motion.img
+          <div className="mt-8 sm:mt-12 lg:mt-16">
+            <img
               src={SocialImage}
               alt="Atlas Social Media Page"
               className="w-full h-auto rounded-lg shadow-2xl"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
             />
-          </motion.div>
+          </div>
           {/* Quick Note 4 */}
           <div className="space-y-2">
             <p className="text-gray-500 text-xs sm:text-sm lg:text-[15px] tracking-wider leading-relaxed lg:leading-loose">
@@ -596,33 +367,21 @@ function Atlas() {
             </p>
           </div>
 
-          <motion.p
-            className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose mt-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <p className="text-black text-base sm:text-xl lg:text-2xl xl:text-[30px] tracking-wider font-light leading-relaxed lg:leading-loose mt-6">
             If you're interested in learning more about Atlas's technical
             implementation, you can check out the Devpost link below:
-          </motion.p>
-          <motion.a
+          </p>
+          <a
             href="https://devpost.com/software/atlas-4kd1lf"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View ATLAS Devpost submission (opens in new tab)"
             className="inline-flex items-center gap-2 text-orange-500 text-base sm:text-lg font-bold hover:text-orange-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             Devpost Link
             <ExternalLink size={16} className="sm:w-5 sm:h-5" aria-hidden="true" />
-          </motion.a>
-        </motion.div>
+          </a>
+        </div>
       </div>
     </div>
   );
