@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Hero from './pages/Hero';
 import Experience from './pages/Experience';
 import Projects from './pages/Projects';
-import Contact from './pages/Contact';
 import Atlas from './pages/Atlas';
 import Footer from './components/Footer';
 
@@ -27,7 +26,6 @@ function HomePage() {
       <div className="max-w-5xl mx-auto px-4">
         <div className="w-full h-px bg-gray-300"></div>
       </div>
-      <Contact />
     </div>
   );
 }
