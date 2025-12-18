@@ -1,53 +1,12 @@
-import { Github, Linkedin, Instagram } from 'lucide-react';
-
-function Footer() {
+const Footer = () => {
   return (
-    <footer className="bg-gray-200 py-6 px-4" role="contentinfo">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-2xl font-light tracking-tight mb-4" style={{ color: '#466EA2' }}>
-          Let's get connected!
-        </h2>
-        
-        <a 
-          href="mailto:joedo2910@vt.edu" 
-          className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300 underline inline-block mb-6"
-        >
-          joedo2910@vt.edu
-        </a>
-
-        <div className="flex gap-6 justify-center items-center">
-          <a
-            href="https://github.com/notjoedo"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Joe's GitHub profile"
-            className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
-          >
-            <Github size={28} aria-hidden="true" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/hoanglehuydo/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Joe's LinkedIn profile"
-            className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
-          >
-            <Linkedin size={28} aria-hidden="true" />
-          </a>
-          <a
-            href="https://www.instagram.com/j03do"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Joe's Instagram profile"
-            className="text-gray-700 hover:text-[#466EA2] transition-colors duration-300"
-          >
-            <Instagram size={28} aria-hidden="true" />
-          </a>
-        </div>
-      </div>
+    <footer className="fixed bottom-0 left-0 right-0 pb-4 sm:pb-6">
+      <div className="w-full border-t border-[#CAC4D0] dark:border-[#4A4A4A] mb-3 sm:mb-4 mx-auto max-w-[95%]"></div>
+      <p className="text-center text-[#252525] dark:text-[#D9D9D9] font-coolvetica-condensed tracking-wide text-xs sm:text-sm">
+        © 2025 Joe (Hoang) Do
+      </p>
     </footer>
   );
-}
+};
 
 export default Footer;
-

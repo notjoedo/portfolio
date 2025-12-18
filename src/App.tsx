@@ -1,54 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
-import Hero from './pages/Hero';
-import Experience from './pages/Experience';
-import Projects from './pages/Projects';
-import Atlas from './pages/Atlas';
+import { Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './contexts/ThemeContext';
+import Header from './components/Header';
 import Footer from './components/Footer';
-
-// Home page component
-function HomePage() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  return (
-    <div>
-      <Hero />
-      <Experience />
-      <Projects />
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="w-full h-px bg-gray-300"></div>
-      </div>
-    </div>
-  );
-}
+import Hero from './pages/Hero';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <>
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:p-4 focus:bg-blue-600 focus:text-white focus:rounded-md focus:shadow-lg">
-        Skip to main content
-      </a>
-      <Router>
-        <Routes>
-          <Route path="/" element={
-            <div className="min-h-screen flex flex-col overflow-x-hidden">
-              <main id="main-content" className="flex-grow">
-                <HomePage />
-              </main>
-              <Footer />
-            </div>
-          } />
-          <Route path="/atlas" element={
-            <main id="main-content">
-              <Atlas />
-            </main>
-          } />
-        </Routes>
-      </Router>
-    </>
-  );
+    <ThemeProvider>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
