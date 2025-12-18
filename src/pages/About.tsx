@@ -41,9 +41,14 @@ const About = () => {
             </p>
           </div>
 
-          <button className="mt-4 sm:mt-5 md:mt-6 w-[75px] h-[32px] sm:w-[80px] sm:h-[35px] md:w-[90px] md:h-[40px] bg-[#37AB31] text-white font-coolvetica-condensed text-sm sm:text-base md:text-lg rounded-full shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center">
+          <a
+            href="/Joe_Do_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 sm:mt-5 md:mt-6 w-[75px] h-[32px] sm:w-[80px] sm:h-[35px] md:w-[90px] md:h-[40px] bg-[#37AB31] text-white font-coolvetica-condensed text-sm sm:text-base md:text-lg rounded-full shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center"
+          >
             resume
-          </button>
+          </a>
         </div>
       </div>
     </div>
