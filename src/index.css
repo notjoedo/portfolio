@@ -1,1 +1,59 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'coolvetica-regular';
+  src: local('coolvetica regular'), local('Coolvetica-Regular');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'coolvetica-condensed';
+  src: local('coolvetica-cond'), 
+       local('Coolvetica-Cond'), 
+       local('coolvetica cond');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'roboto';
+  src: local('Roboto'), local('roboto');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  background-color: #D9D9D9;
+  transition: background-color 0.3s ease;
+}
+
+html.dark {
+  background-color: #252525;
+}
+
+body {
+  font-family: 'coolvetica-regular';
+  background-color: #D9D9D9;
+  color: #252525;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background-color: #252525;
+  color: #D9D9D9;
+}
+
+.font-coolvetica-regular {
+  font-family: 'coolvetica-regular';
+}
+
+.font-coolvetica-condensed {
+  font-family: 'coolvetica-condensed', 'coolvetica-cond', 'Coolvetica-Cond';
+}
+
+.font-roboto {
+  font-family: 'roboto';
+}
