@@ -9,13 +9,17 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <ThemeProvider>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <Footer />
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </ThemeProvider>
   )
 }
