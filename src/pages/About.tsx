@@ -1,5 +1,3 @@
-import pfpImage from '/pfp.jpeg';
-
 const About = () => {
   return (
     <div className="min-h-screen pt-20 sm:pt-24 pb-32 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24 flex flex-col">
@@ -13,7 +11,7 @@ const About = () => {
       <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 xl:gap-20 items-center md:items-center justify-center mx-auto w-full md:max-w-6xl">
         <div className="flex flex-col items-center shrink-0 w-full md:w-auto">
           <img
-            src={pfpImage}
+            src="/pfp.jpeg"
             alt="Joe Do"
             className="w-36 h-36 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full object-cover mb-3 sm:mb-4"
           />
