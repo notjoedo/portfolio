@@ -4,22 +4,18 @@
 
 @font-face {
   font-family: 'coolvetica-regular';
-  src: url('/fonts/coolvetica-regular.otf') format('opentype'),
-       local('coolvetica regular'), local('Coolvetica-Regular');
+  src: local('coolvetica regular'), local('Coolvetica-Regular');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
   font-family: 'coolvetica-condensed';
-  src: url('/fonts/coolvetica-condensed.otf') format('opentype'),
-       local('coolvetica-cond'), 
+  src: local('coolvetica-cond'), 
        local('Coolvetica-Cond'), 
        local('coolvetica cond');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 
 @font-face {

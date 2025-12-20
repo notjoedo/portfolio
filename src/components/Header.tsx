@@ -11,10 +11,10 @@ const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const isSun = theme === 'light';
 
-  const linkClassName = "text-[#252525] dark:text-[#D9D9D9] font-coolvetica-condensed hover:opacity-70 transition-opacity cursor-pointer";
+  const linkClassName = "text-[#252525] dark:text-[#D9D9D9] font-coolvetica-condensed hover:opacity-70 transition-opacity cursor-pointer py-2 px-3 sm:py-2.5 sm:px-4 md:py-3 md:px-5";
 
   return (
-    <header className="fixed top-0 right-0 pt-4 sm:pt-6 pr-4 sm:pr-6 md:pr-12 lg:pr-16 flex items-center text-base sm:text-lg md:text-xl lg:text-[25px] gap-8 sm:gap-12 md:gap-16 lg:gap-[100px] z-10">
+    <header className="w-full pt-4 sm:pt-6 pr-4 sm:pr-6 md:pr-12 lg:pr-16 flex items-center justify-end text-base sm:text-lg md:text-xl lg:text-[25px]">
       <Link to="/" className={linkClassName}>
         home
       </Link>
@@ -26,7 +26,7 @@ const Header = () => {
       </Link>
       <button
         onClick={toggleTheme}
-        className="hover:opacity-70 transition-opacity cursor-pointer relative w-6 h-6 sm:w-7 sm:h-7 md:w-5 md:h-5 lg:w-8 lg:h-8 flex items-center justify-center"
+        className="hover:opacity-70 transition-opacity cursor-pointer relative w-6 h-6 sm:w-7 sm:h-7 md:w-5 md:h-5 lg:w-8 lg:h-8 flex items-center justify-center p-2 sm:p-2.5 md:p-3 ml-4 sm:ml-6 md:ml-8"
         aria-label="Toggle theme"
       >
         <motion.div
