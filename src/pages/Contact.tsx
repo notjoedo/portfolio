@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <div className="min-h-screen pt-12 sm:pt-16 pb-32 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24">
+    <div className="min-h-screen pt-4 sm:pt-6 pb-32 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24">
       <div className="mb-10 sm:mb-12 md:mb-16 mx-auto w-full md:max-w-6xl">
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-coolvetica-condensed text-[#252525] dark:text-[#D9D9D9] mb-3 sm:mb-4">
           contact

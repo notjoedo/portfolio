@@ -12,7 +12,7 @@ const Hero = () => {
           ai solutions engineer
         </p>
         <p className="text-xl sm:text-2xl md:text-3xl lg:text-[50px] font-coolvetica-condensed text-[#252525] dark:text-[#D9D9D9]">
-          here's <Link to="/about" className="text-[#37AB31] underline hover:opacity-70 transition-opacity">what</Link> i'm up to
+          here's <Link to="/activities" className="text-[#37AB31] underline hover:opacity-70 transition-opacity">what</Link> i'm up to
         </p>
       </div>
     </div>
