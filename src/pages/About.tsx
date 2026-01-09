@@ -27,7 +27,7 @@ const About = () => {
             </p>
             <p>
               Currently, studying Data Science at{' '}
-              <span className="text-[#37AB31]">Virginia Tech</span> and working as a tech lead @{' '}
+              <span className="text-[#37AB31]">Virginia Tech</span> and working as the CTO @{' '}
               <span className="text-[#37AB31]">Projectr</span>. I am set to be an AI and IoT Intern @{' '}
               <span className="text-[#37AB31]">SAS</span> in Summer 2026.
             </p>
